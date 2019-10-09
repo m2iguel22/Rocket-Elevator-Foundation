@@ -1,14 +1,14 @@
 class Employees < ActiveRecord::Migration[5.2]
   def change
-    create_table :Employees do |t|
-      t.integer :UserId
-      t.string :Name
-      t.string :FirstName
-      t.string :OccupationProfession
-      t.string :EmailAdress
-      t.integer :Token
-      t.string :UserName
-      t.integer :Password
+    create_table :employees do |t|
+      t.integer :user_id
+      t.string :name
+      t.string :first_name
+      t.string :occupation_profession
+      t.string :email_adress
+      t.integer :token
+      t.string :user_name
+      t.string :password
     end
   end
 end

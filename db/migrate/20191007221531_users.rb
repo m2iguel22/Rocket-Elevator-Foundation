@@ -1,17 +1,16 @@
 class Users < ActiveRecord::Migration[5.2]
   def change
-    create_table :Users do |t|
-      t.string :FullName
-      t.string :City
-      t.string :Company
-      t.string :EmailAdress
-      t.integer :PhoneNumber
-      t.string :ProjectName
-      t.string :DepartmentInCharge
-      t.text :ProjectInfo
-      t.text :Message
-      t.string :Users
-      t.integer :Password
+    create_table :users do |t|
+      t.string :full_name
+      t.string :company
+      t.string :email
+      t.integer :phone
+      t.string :project_name
+      t.string :department_in_charge
+      t.text :project
+      t.text :message
+      t.string :username
+      t.string :password
     end
   end
 end
