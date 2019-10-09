@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/residential', to: 'pages#residential'
   get '/commercial', to: 'pages#commercial'
 
+  resources :employees
 end

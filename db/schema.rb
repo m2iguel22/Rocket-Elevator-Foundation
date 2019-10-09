@@ -12,49 +12,49 @@
 
 ActiveRecord::Schema.define(version: 2019_10_07_221628) do
 
-  create_table "Employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "UserId"
-    t.string "Name"
-    t.string "FirstName"
-    t.string "OccupationProfession"
-    t.string "EmailAdress"
-    t.integer "Token"
-    t.string "UserName"
-    t.integer "Password"
+  create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name"
+    t.string "first_name"
+    t.string "occupation_profession"
+    t.string "email_adress"
+    t.integer "token"
+    t.string "user_name"
+    t.string "password"
   end
 
-  create_table "Quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "TypeOfBuilding"
-    t.integer "NumberOfAppartments"
-    t.integer "NumberOfFloors"
-    t.integer "NumberOfBasements"
-    t.integer "NumberOfStores"
-    t.integer "NumberOfParking"
-    t.integer "NumberOfCompanies"
-    t.integer "OccupantPerFloor"
-    t.integer "ActivityHours"
-    t.integer "EstimatedCageNumber"
-    t.string "RangeOfServices"
-    t.float "UnitPrice"
-    t.float "Elevatorprice"
-    t.integer "InstallationCost"
-    t.float "TotalPrice"
+  create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "type_of_building"
+    t.integer "apartments_number"
+    t.integer "floors_number"
+    t.integer "undergrounds_number"
+    t.integer "stores_number"
+    t.integer "cage_number"
+    t.integer "parking_places"
+    t.integer "companies_number"
+    t.integer "occupants_per_floor"
+    t.integer "open_hours"
+    t.integer "estimate_cage_number"
+    t.string "range_of_elevator"
+    t.float "unit_price"
+    t.float "elevator_price"
+    t.integer "installation_cost"
+    t.float "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "Users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "FullName"
-    t.string "City"
-    t.string "Company"
-    t.string "EmailAdress"
-    t.integer "PhoneNumber"
-    t.string "ProjectName"
-    t.string "DepartmentInCharge"
-    t.text "ProjectInfo"
-    t.text "Message"
-    t.string "Users"
-    t.integer "Password"
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "full_name"
+    t.string "company"
+    t.string "email"
+    t.integer "phone"
+    t.string "project_name"
+    t.string "department_in_charge"
+    t.text "project"
+    t.text "message"
+    t.string "username"
+    t.string "password"
   end
 
 end
