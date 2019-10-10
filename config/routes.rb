@@ -2,10 +2,8 @@ Rails.application.routes.draw do
 
 
   resources :quotes
-  devise_for :users, path: 'users'
+  devise_for :employees, path: 'employees'
   # eg. http://localhost:3000/users/sign_in
-  devise_for :admins, path: 'admins'
-  # eg. http://localhost:3000/admins/sign_in
  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
@@ -18,7 +16,7 @@ Rails.application.routes.draw do
   get '/commercial', to: 'pages#commercial'
 
   get '/quote_confirm', to: 'pages#quote_confirm'
-
+ 
 
   get 'home/index'
   get '/users/sign_out', to: 'pages#index'

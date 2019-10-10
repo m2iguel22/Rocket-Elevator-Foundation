@@ -163,4 +163,3 @@ class QuotesController < ApplicationController
     def quote_params
       params.fetch(:quote, {})
     end
-end
