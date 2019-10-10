@@ -1,9 +1,7 @@
 class QuotesController < ApplicationController
   
   before_action :set_quote, only: [:show, :edit, :update, :destroy]
-  
-  
-  
+ 
   def new
     @quote = Quote.new
   end
@@ -46,6 +44,7 @@ class QuotesController < ApplicationController
     @quote = Quote.new(quote_params)
     
     @quote.type_of_building = typeOfBuilding
+
     if typeOfBuilding == 'residential'
       @quote.apartments_number = residentialApartmentNumber
       @quote.floors_number = residentialFloorNumber
