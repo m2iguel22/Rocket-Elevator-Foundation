@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  
-  devise_for :users
+
+  resources :quotes
+  devise_for :users, path: 'users'
+  # eg. http://localhost:3000/users/sign_in
+  devise_for :admins, path: 'admins'
+  # eg. http://localhost:3000/admins/sign_in
+ 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
