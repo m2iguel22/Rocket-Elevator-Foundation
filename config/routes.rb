@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
 
-
   resources :quotes
   devise_for :users, path: 'users'
   # eg. http://localhost:3000/users/sign_in
