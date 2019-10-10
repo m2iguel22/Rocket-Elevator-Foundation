@@ -1,7 +1,10 @@
-class Quotes < ActiveRecord::Migration[5.2]
+class CreateQuotes < ActiveRecord::Migration[5.2]
   def change
     create_table :quotes do |t|
-      t.string :type_of_building
+      t.string :name
+      t.string :email
+      t.integer :phone_number
+      t.string :type_of_building 
       t.integer :apartments_number
       t.integer :floors_number
       t.integer :undergrounds_number
