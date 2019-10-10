@@ -80,3 +80,4 @@ gem 'rails_admin', '~> 2.0'
 
 # devise
 gem 'devise'
+
