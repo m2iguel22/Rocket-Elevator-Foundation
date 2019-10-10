@@ -373,20 +373,20 @@
 
 
 
-                            <%# <div class= "divSize"> 
+                            <div class= "divSize"> 
                                 <div class= "askStyle">
                                     <label class= "labelStyle">Customer information</label>
                                     <div class= "quoteStyle">
                                         <label class = "quoteLabelStyle">Your Full Name:</label>
-                                        <input class= "ansStyle" required type="text"/></br>
+                                        <input name='Name' class= "ansStyle" required type="text"/></br>
                                         <label class = "quoteLabelStyle">Email Address:</label>
-                                        <input class= "ansStyle" required type="email"/></br>
+                                        <input name='Email' class= "ansStyle" required type="email"/></br>
                                         <label class = "quoteLabelStyle">Phone Number:</label>
-                                        <input class= "ansStyle" type= "number"/></br>
+                                        <input name='Phone' class= "ansStyle" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="000-000-0000" type= "tel"/></br>
                                     </div>
                                 
                                 </div>      
-                            </div> %>
+                            </div>
 
                             
                                 <input name= 'Unit_price' id= "A" style= 'display: none'/>
