@@ -1,8 +1,9 @@
 
 // elevator cage calcul
 function comcalcCageNumber(){
+    console.log("OK")
     var cageNumber = $("#comElevCageNumber").val();
-    $("#estimateCageNumber").val(cageNumber);
+    $("#estimateCageNumber").val(cageNumber);  
 }
 
 function rescalcCageNumber(){
@@ -29,6 +30,7 @@ function corcalcCageNumber(){
                     var elevCol = Math.ceil((corFloorNumber + corUndergrNumber)/20);
                     var corCagePerCol= Math.ceil(elevNeeded/elevCol);
                     var cageNumber = corCagePerCol * elevCol;
+                    $("#estimateCageNumber2").val(cageNumber);
                     $("#estimateCageNumber").val(cageNumber);
 }
 
@@ -135,6 +137,7 @@ function hybcalcCageNumber(){
                     $("#corp1").hide();
                     $("#hyb1").hide();
                 }
+        
             }
             // end of display by type
 
@@ -151,10 +154,10 @@ function correctHour(){
 // end of to make hours of activity between 1 and 24
 
 
+
 // quote calcul
 function quoteCalc(Y){
     $("#unitP").text("$" + Y[0] + ".00");
-
     var cageNumber = $("#estimateCageNumber").val();
     var elevP = cageNumber * Y[0];
     $("#elevP").text("$" + elevP + ".00");
