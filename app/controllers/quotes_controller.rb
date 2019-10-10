@@ -39,6 +39,10 @@ class QuotesController < ApplicationController
     elevatorPrice = params['Elevator_price']
     installationCost =params['Installation_cost']
     totalPrice = params['Total_price']
+
+    name = params['Name']
+    email = params['Email']
+    phone = params['Phone']
     
 
     @quote = Quote.new(quote_params)
@@ -82,15 +86,17 @@ class QuotesController < ApplicationController
     @quote.elevator_price = elevatorPrice
     @quote.installation_cost = installationCost
     @quote.total_price = totalPrice
+    @quote.name = name
+    @quote.email = email
+    @quote.phone_number = phone
+
 
 
 
 
 
     @quote.save!
-    # quote_params = params.require(:quote).permit(:type_of_building)
-    # quote = Quote.create(quote_params)
-
+    
     redirect_to quote_confirm_path
   end
   
