@@ -1,7 +1,5 @@
 class QuotesController < ApplicationController
   
-  
-  
   def new
     @quote = Quote.new
   end
@@ -44,6 +42,7 @@ class QuotesController < ApplicationController
     @quote = Quote.new
     
     @quote.type_of_building = typeOfBuilding
+
     if typeOfBuilding == 'residential'
       @quote.apartments_number = residentialApartmentNumber
       @quote.floors_number = residentialFloorNumber
