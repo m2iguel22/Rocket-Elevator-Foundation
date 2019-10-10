@@ -3,6 +3,7 @@
 function comcalcCageNumber(){
     var cageNumber = $("#comElevCageNumber").val();
     $("#estimateCageNumber").val(cageNumber);
+    $("#estimateCageNumber2").val(cageNumber);
 }
 
 function rescalcCageNumber(){
@@ -18,6 +19,7 @@ function rescalcCageNumber(){
         var cageNumber = Math.ceil(cage*(resFloorNumber/20));
     }
     $("#estimateCageNumber").val(cageNumber);
+    $("#estimateCageNumber2").val(cageNumber);
 }
 
 function corcalcCageNumber(){
@@ -30,6 +32,7 @@ function corcalcCageNumber(){
                     var corCagePerCol= Math.ceil(elevNeeded/elevCol);
                     var cageNumber = corCagePerCol * elevCol;
                     $("#estimateCageNumber").val(cageNumber);
+                    $("#estimateCageNumber2").val(cageNumber);
 }
 
 function hybcalcCageNumber(){
@@ -42,6 +45,7 @@ function hybcalcCageNumber(){
             var corCagePerCol= Math.ceil(elevNeeded/elevCol);
             var cageNumber = corCagePerCol * elevCol;
             $("#estimateCageNumber").val(cageNumber);
+            $("#estimateCageNumber2").val(cageNumber);
 }
 
 
@@ -154,17 +158,20 @@ function correctHour(){
 // quote calcul
 function quoteCalc(Y){
     $("#unitP").text("$" + Y[0] + ".00");
+    $("#A").val(Y[0]);
 
     var cageNumber = $("#estimateCageNumber").val();
     var elevP = cageNumber * Y[0];
     $("#elevP").text("$" + elevP + ".00");
+    $("#B").val(elevP);
 
     var instP = elevP *(Y[1]/100);
     $("#instP").text("$" + (instP.toFixed(2)));
+    $("#C").val(instP.toFixed(2));
 
     var totalP = elevP + instP;
     $("#totalP").text("$" + (totalP.toFixed(2)));
-
+    $("#D").val(totalP.toFixed(2));
 }
 
 
