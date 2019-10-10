@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  
+  devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :admins
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -9,5 +10,6 @@ Rails.application.routes.draw do
   get '/residential', to: 'pages#residential'
   get '/commercial', to: 'pages#commercial'
   get 'home/index'
+  get '/users/sign_out', to: 'pages#index'
   resources :employees
 end

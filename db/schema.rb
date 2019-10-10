@@ -9,20 +9,19 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
+ActiveRecord::Schema.define(version: 2019_10_10_014250) do
 
-ActiveRecord::Schema.define(version: 2019_10_09_202259) do
-
-  create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.boolean "admin"
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_admins_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  create_table "Administrators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "full_name"
+    t.string "company"
+    t.string "email"
+    t.integer "phone"
+    t.string "project_name"
+    t.string "department_in_charge"
+    t.text "project"
+    t.text "message"
+    t.string "username"
+    t.string "password"
   end
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -58,16 +57,15 @@ ActiveRecord::Schema.define(version: 2019_10_09_202259) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "full_name"
-    t.string "company"
-    t.string "email"
-    t.integer "phone"
-    t.string "project_name"
-    t.string "department_in_charge"
-    t.text "project"
-    t.text "message"
-    t.string "username"
-    t.string "password"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
