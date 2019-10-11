@@ -15,18 +15,23 @@ include Faker
         email: Faker::Internet.email,
         password: '123456'
     )
-
-  Employees.create(firstname: 'Nicolas', lastname: 'Genest', title: 'Comm.Rep', email: 'nicolas.genest@codeboxx.biz', encrypted_password: BCrypt::Password.create('12345678'))
-  Employees.create(firstname: 'David', lastname: 'Boutin', title: 'Engineer', email: 'david.boutin@codeboxx.biz', encrypted_password: BCrypt::Password.create('12345678'))
-  Employees.create(firstname: 'Remi', lastname: 'Gagnon', title: 'Engineer', email: 'remi.gagnon@codeboxx.biz', encrypted_password: BCrypt::Password.create('12345678'))
-  Employees.create(firstname: 'Mathieu', lastname: 'LeFrançois', title: 'Engineer', email: 'mathieu.lefrancois@codeboxx.biz', encrypted_password: BCrypt::Password.create('12345678'))
-  Employees.create(firstname: 'Mathieu', lastname: 'Lortie', title: 'Engineer', email: 'mathieu.lortie@codeboxx.biz', encrypted_password: BCrypt::Password.create('12345678'))
-  Employees.create(firstname: 'Mathieu', lastname: 'Houde', title: 'Engineer', email: 'mathieu.houde@codeboxx.biz', encrypted_password: BCrypt::Password.create('12345678'))
-  Employees.create(firstname: 'Serge', lastname: 'Savoie', title: 'Engineer', email: 'serge.savoie@codeboxx.biz', encrypted_password: BCrypt::Password.create('12345678'))
-  Employees.create(firstname: 'Nadya', lastname: 'Fortier', title: 'Director', email: 'nadya.fortier@codeboxx.biz	', encrypted_password: BCrypt::Password.create('12345678'))
-  Employees.create(firstname: 'Martin', lastname: 'Chantal', title: 'Engineer', email: 'martin.chantal@codeboxx.biz	', encrypted_password: BCrypt::Password.create('12345678'))
-  Employees.create(firstname: 'Steve', lastname: 'Drolet-Toutant', title: 'Ass.Director', email: 'stevedt@codeboxx.biz', encrypted_password: BCrypt::Password.create('12345678'))
-    
-    
 end
 
+
+50.times do 
+    Employee.create!(
+        email: Faker::Internet.email,
+        password: '123456'
+    )
+end
+
+  employee = Employee.create! :first_name => 'Nicolas', :last_name => 'Genest', :title => 'Comm.Rep', :email => 'nicolas.genest@codeboxx.biz', :password => '123456'
+  employee = Employee.create! :first_name => 'David', :last_name => 'Boutin', :title => 'Engineer', :email => 'david.boutin@codeboxx.biz', :password => '12345678'
+  employee = Employee.create! :first_name => 'Remi', :last_name => 'Gagnon', :title => 'Engineer', :email => 'remi.gagnon@codeboxx.biz', :password => '12345678'
+  employee = Employee.create! :first_name => 'Mathieu', :last_name => 'LeFrançois', :title => 'Engineer', :email => 'mathieu.lefrancois@codeboxx.biz', :password => '12345678'
+  employee = Employee.create! :first_name => 'Mathieu', :last_name => 'Lortie', :title => 'Engineer', :email => 'mathieu.lortie@codeboxx.biz', :password => '12345678'
+  employee = Employee.create! :first_name => 'Mathieu', :last_name => 'Houde', :title => 'Engineer', :email => 'mathieu.houde@codeboxx.biz', :password => '12345678'
+  employee = Employee.create! :first_name => 'Serge', :last_name => 'Savoie', :title => 'Engineer', :email => 'serge.savoie@codeboxx.biz', :password => '12345678'
+  employee = Employee.create! :first_name => 'Nadya', :last_name => 'Fortier', :title => 'Director', :email => 'nadya.fortier@codeboxx.biz', :password => '12345678'
+  employee = Employee.create! :first_name => 'Martin', :last_name => 'Chantal', :title => 'Engineer', :email => 'martin.chantal@codeboxx.biz', :password => '12345678'
+ 
