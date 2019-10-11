@@ -1,5 +1,5 @@
-class QuotesController < ApplicationController
-  
+class QuotesController < ApplicationController  
+
   before_action :set_quote, only: [:show, :edit, :update, :destroy]
  
   def new
@@ -54,6 +54,16 @@ class QuotesController < ApplicationController
       @quote.floors_number = residentialFloorNumber
       @quote.undergrounds_number = residentialUndergroundNumber
 
+      @quote.estimate_cage_number = estCageNumber
+      @quote.range_of_elevator = range
+      @quote.unit_price = unitPrice
+      @quote.elevator_price = elevatorPrice
+      @quote.installation_cost = installationCost
+      @quote.total_price = totalPrice
+      @quote.name = name
+      @quote.email = email
+      @quote.phone_number = phone
+
       @quote.save!
     
       redirect_to quote_confirm_path
@@ -65,6 +75,16 @@ class QuotesController < ApplicationController
       @quote.undergrounds_number = commercialUndergroundNumber
       @quote.cage_number = commercialElevCageNumber
       @quote.parking_places = commercialParkPlaceNumber
+
+      @quote.estimate_cage_number = estCageNumber
+      @quote.range_of_elevator = range
+      @quote.unit_price = unitPrice
+      @quote.elevator_price = elevatorPrice
+      @quote.installation_cost = installationCost
+      @quote.total_price = totalPrice
+      @quote.name = name
+      @quote.email = email
+      @quote.phone_number = phone
 
       @quote.save!
     
@@ -78,6 +98,16 @@ class QuotesController < ApplicationController
       @quote.parking_places = corporateParkPlaceNumber
       @quote.occupants_per_floor = corporateOccPerFloorNumber
 
+      @quote.estimate_cage_number = estCageNumber
+      @quote.range_of_elevator = range
+      @quote.unit_price = unitPrice
+      @quote.elevator_price = elevatorPrice
+      @quote.installation_cost = installationCost
+      @quote.total_price = totalPrice
+      @quote.name = name
+      @quote.email = email
+      @quote.phone_number = phone
+
       @quote.save!
     
       redirect_to quote_confirm_path
@@ -90,20 +120,21 @@ class QuotesController < ApplicationController
       @quote.parking_places = hybridParkplaceNumber
       @quote.occupants_per_floor = hybridOccPerFloorNumber
       @quote.open_hours = hybridHourActNumber
+
+      @quote.estimate_cage_number = estCageNumber
+      @quote.range_of_elevator = range
+      @quote.unit_price = unitPrice
+      @quote.elevator_price = elevatorPrice
+      @quote.installation_cost = installationCost
+      @quote.total_price = totalPrice
+      @quote.name = name
+      @quote.email = email
+      @quote.phone_number = phone
+
       @quote.save!
     
       redirect_to quote_confirm_path
     end
-
-    @quote.estimate_cage_number = estCageNumber
-    @quote.range_of_elevator = range
-    @quote.unit_price = unitPrice
-    @quote.elevator_price = elevatorPrice
-    @quote.installation_cost = installationCost
-    @quote.total_price = totalPrice
-    @quote.name = name
-    @quote.email = email
-    @quote.phone_number = phone
 
     if typeOfBuilding == nil
       redirect_to quote_new_path
@@ -131,8 +162,6 @@ class QuotesController < ApplicationController
 
   # POST /quotes
   # POST /quotes.json
-#  def create
-#    @quote = Quote.new(quote_params)
 
     respond_to do |format|
       if @quote.save
@@ -143,7 +172,7 @@ class QuotesController < ApplicationController
         format.json { render json: @quote.errors, status: :unprocessable_entity }
       end
     end
-  end
+  
 
   # PATCH/PUT /quotes/1
   # PATCH/PUT /quotes/1.json
@@ -178,4 +207,5 @@ class QuotesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def quote_params
       params.fetch(:quote, {})
-    end
+    end 
+  end
