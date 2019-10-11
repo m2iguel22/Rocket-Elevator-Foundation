@@ -18,13 +18,13 @@ User.create!(email: "serge.savoie@codeboxx.biz", password: "123456", password_co
 User.create!(email: "nadya.fortier@codeboxx.biz", password: "123456", password_confirmation: "123456", admin: true)
 User.create!(email: "martin.chantal@codeboxx.biz", password: "123456", password_confirmation: "123456", admin: true)
 
-1500.times do
-    User.create!(
+# 1500.times do
+#     User.create!(
        
-        email: Faker::Internet.email,
-        password: '123456'
-    )
-end
+#         email: Faker::Internet.email,
+#         password: '123456'
+#     )
+# end
 
   employee = Employee.create! :first_name => 'Nicolas', :last_name => 'Genest', :title => 'Comm.Rep', :email => 'nicolas.genest@codeboxx.biz', :password => '123456'
   employee = Employee.create! :first_name => 'David', :last_name => 'Boutin', :title => 'Engineer', :email => 'david.boutin@codeboxx.biz', :password => '12345678'
