@@ -9,13 +9,13 @@
 require 'faker'
 include Faker
 
-1500.times do
-    User.create!(
+# 1500.times do
+#     User.create!(
        
-        email: Faker::Internet.email,
-        password: '123456'
-    )
-end
+#         email: Faker::Internet.email,
+#         password: '123456'
+#     )
+# end
 
 
 50.times do 
