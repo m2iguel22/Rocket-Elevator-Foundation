@@ -81,4 +81,5 @@ gem 'rails_admin', '~> 2.0'
 # devise
 gem 'devise'
 
-
+#rollin code
+gem 'rails_admin_rollincode', '~> 1.0'
