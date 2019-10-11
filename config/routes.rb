@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/commercial', to: 'pages#commercial'
 
   get '/quote_confirm', to: 'pages#quote_confirm'
+  get '/terms_and_conditions', to: 'pages#terms_and_conditions'
  
 
   get 'home/index'

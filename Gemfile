@@ -77,8 +77,10 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # rails admin
-gem 'rails_admin_rollincode'
 gem 'rails_admin', '~> 2.0'
+
+#rollin code
+gem 'rails_admin_rollincode', '~> 1.0'
 
 # devise
 gem 'devise'
