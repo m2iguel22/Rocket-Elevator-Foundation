@@ -53,6 +53,10 @@ class QuotesController < ApplicationController
       @quote.apartments_number = residentialApartmentNumber
       @quote.floors_number = residentialFloorNumber
       @quote.undergrounds_number = residentialUndergroundNumber
+
+      @quote.save!
+    
+      redirect_to quote_confirm_path
     end
 
     if typeOfBuilding == 'commercial'
@@ -61,6 +65,10 @@ class QuotesController < ApplicationController
       @quote.undergrounds_number = commercialUndergroundNumber
       @quote.cage_number = commercialElevCageNumber
       @quote.parking_places = commercialParkPlaceNumber
+
+      @quote.save!
+    
+      redirect_to quote_confirm_path
     end
 
     if typeOfBuilding == 'corporate'
@@ -69,6 +77,10 @@ class QuotesController < ApplicationController
       @quote.undergrounds_number = corporateUndergroundNumber
       @quote.parking_places = corporateParkPlaceNumber
       @quote.occupants_per_floor = corporateOccPerFloorNumber
+
+      @quote.save!
+    
+      redirect_to quote_confirm_path
     end
 
     if typeOfBuilding == 'hybrid'
@@ -78,6 +90,9 @@ class QuotesController < ApplicationController
       @quote.parking_places = hybridParkplaceNumber
       @quote.occupants_per_floor = hybridOccPerFloorNumber
       @quote.open_hours = hybridHourActNumber
+      @quote.save!
+    
+      redirect_to quote_confirm_path
     end
 
     @quote.estimate_cage_number = estCageNumber
@@ -90,14 +105,10 @@ class QuotesController < ApplicationController
     @quote.email = email
     @quote.phone_number = phone
 
+    if typeOfBuilding == nil
+      redirect_to quote_new_path
+    end
 
-
-
-
-
-    @quote.save!
-    
-    redirect_to quote_confirm_path
   end
   
 
