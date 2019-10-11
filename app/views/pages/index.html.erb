@@ -194,12 +194,39 @@
 											CONTACT
 										</a>
 									</li>
-									<li><!-- LOGIN -->
-										<a href="/admin">
-											LOGIN
-										</a>
-									</li>
-								</ul>
+									<li>
+									<!-- Account -->
+								<% if current_user %>
+								<a href="">
+										<%= current_user.email %>
+									</a>
+									<ul class="dropdown-menu">
+									<li>
+									<a href="">
+										  <%= link_to 'SIGN OUT', destroy_user_session_path, method: :delete %>
+									</a>
+								  </li>
+									<% if current_user.admin == true %>
+								  <li>
+									<a href="/admin">
+										Dashboard
+									</a>
+								  </li>
+									<% end %>
+								<% else %>
+								<a href="">
+										 ACCOUNT
+									</a>
+									<ul class="dropdown-menu">
+								  <li>
+								  <a href="">
+										<%= link_to 'SIGN IN', new_user_session_path %>
+								  </a>
+								</li>
+						
+									<% end %>
+									</ul>
+								  </li>
 
 
 							</nav>
