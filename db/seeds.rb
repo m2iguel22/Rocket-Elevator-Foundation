@@ -8,25 +8,23 @@
 
 require 'faker'
 include Faker
+User.create!(email: "nicolas.genest@codeboxx.biz", password: "123456", password_confirmation: "123456", admin: true)
+User.create!(email: "david.boutin@codeboxx.biz", password: "123456", password_confirmation: "123456", admin: true)
+User.create!(email: "remi.gagnon@codeboxx.biz", password: "123456", password_confirmation: "123456", admin: true)
+User.create!(email: "mathieu.lefrancois@codeboxx.biz", password: "123456", password_confirmation: "123456", admin: true)
+User.create!(email: "mathieu.lortie@codeboxx.biz", password: "123456", password_confirmation: "123456", admin: true)
+User.create!(email: "mathieu.houde@codeboxx.biz", password: "123456", password_confirmation: "123456", admin: true)
+User.create!(email: "serge.savoie@codeboxx.biz", password: "123456", password_confirmation: "123456", admin: true)
+User.create!(email: "nadya.fortier@codeboxx.biz", password: "123456", password_confirmation: "123456", admin: true)
+User.create!(email: "martin.chantal@codeboxx.biz", password: "123456", password_confirmation: "123456", admin: true)
 
-1500.times do
-    User.create!(
+# 1500.times do
+#     User.create!(
        
-        email: Faker::Internet.email,
-        password: '123456'
-    )
-end
-
-
-50.times do 
-    Employee.create!(
-        first_name: Faker::Name.first_name,
-        last_name: Faker::Name.last_name,
-        title: Faker::Construction.role,     
-        email: Faker::Internet.email,
-        password: '123456'
-    )
-end
+#         email: Faker::Internet.email,
+#         password: '123456'
+#     )
+# end
 
   employee = Employee.create! :first_name => 'Nicolas', :last_name => 'Genest', :title => 'Comm.Rep', :email => 'nicolas.genest@codeboxx.biz', :password => '123456'
   employee = Employee.create! :first_name => 'David', :last_name => 'Boutin', :title => 'Engineer', :email => 'david.boutin@codeboxx.biz', :password => '12345678'
@@ -38,3 +36,12 @@ end
   employee = Employee.create! :first_name => 'Nadya', :last_name => 'Fortier', :title => 'Director', :email => 'nadya.fortier@codeboxx.biz', :password => '12345678'
   employee = Employee.create! :first_name => 'Martin', :last_name => 'Chantal', :title => 'Engineer', :email => 'martin.chantal@codeboxx.biz', :password => '12345678'
  
+50.times do 
+    Employee.create!(
+        first_name: Faker::Name.first_name,
+        last_name: Faker::Name.last_name,
+        title: Faker::Construction.role,     
+        email: Faker::Internet.email,
+        encrypted_password: '123456'
+    )
+ end
