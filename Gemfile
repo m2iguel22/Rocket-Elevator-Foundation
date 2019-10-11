@@ -22,12 +22,13 @@ gem 'jquery-rails'
 gem 'jquery-cdn', '~> 3.3', '>= 3.3.1'
 
 gem 'bootstrap-tooltip-rails'
+gem 'bootstrap-sass'
+gem 'bootstrap-social-rails'
 
 gem "font-awesome-rails"
-#gem 'bootstrap-sass', '~> 3.3.4'
-#gem 'font-awesome-sass', '~> 4.3.0'
+gem 'font-awesome-sass'
 #gem 'jquery-ui-rails'
-#gem 'bootstrap-social-rails'
+
 
 
 # Use CoffeeScript for .coffee assets and views
@@ -39,7 +40,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -78,8 +79,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # rails admin
 gem 'rails_admin', '~> 2.0'
 
+#rollin code
+gem 'rails_admin_rollincode', '~> 1.0'
+
 # devise
 gem 'devise'
 
-#rollin code
-gem 'rails_admin_rollincode', '~> 1.0'
+gem 'cancan'
