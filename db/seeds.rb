@@ -18,7 +18,7 @@ User.create!(email: "serge.savoie@codeboxx.biz", password: "123456", password_co
 User.create!(email: "nadya.fortier@codeboxx.biz", password: "123456", password_confirmation: "123456", admin: true)
 User.create!(email: "martin.chantal@codeboxx.biz", password: "123456", password_confirmation: "123456", admin: true)
 
-50.times do
+1500.times do
     User.create!(
        
         email: Faker::Internet.email,
@@ -50,8 +50,8 @@ end
 #     Contact.create!(
 #         full_name: Faker::Name.first_name,
 #         company:
-#         email: Faker::Internet.email,
-#         phone:
+#         email: Faker::Internet.email,                       ///// we wanted to create a contact table. We don't know if we'll have time so we'll just leave the faker here
+#         phone:                                                   for the moment. 
 #         project_name:
 #         department_in_charge: Faker::Commerce.department
 #         project:
