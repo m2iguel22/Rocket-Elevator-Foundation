@@ -6,7 +6,6 @@ class CreateEmployees < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
-      t.datetime :remember_created_at
       t.timestamps null:false
     end
     add_index :employees, :email,                unique: true
