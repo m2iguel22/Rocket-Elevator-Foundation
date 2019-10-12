@@ -113,7 +113,7 @@ class QuotesController < ApplicationController
       redirect_to quote_confirm_path
     end
 
-    if typeOfBuilding == 'hybrid'
+    if typeOfBuilding == 'hybride'
       @quote.stores_number = hybridStoreNumber
       @quote.floors_number = hybridFloorNumber
       @quote.undergrounds_number = hybridUndergroundNumber
