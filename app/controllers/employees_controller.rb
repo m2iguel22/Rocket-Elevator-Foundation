@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
-  before_action :authenticate_admins!
+  after_action :skip_password
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
   # GET /employees
