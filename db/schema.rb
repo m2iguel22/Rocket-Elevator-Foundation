@@ -24,8 +24,6 @@ ActiveRecord::Schema.define(version: 2019_10_15_212225) do
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "customer_id"
-    t.index ["customer_id"], name: "index_addresses_on_customer_id"
   end
 
   create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -87,7 +85,9 @@ ActiveRecord::Schema.define(version: 2019_10_15_212225) do
     t.string "email_of_technical_service"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "address_id"
     t.bigint "user_id"
+    t.index ["address_id"], name: "index_customers_on_address_id"
     t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
@@ -167,13 +167,13 @@ ActiveRecord::Schema.define(version: 2019_10_15_212225) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "addresses", "customers"
   add_foreign_key "batteries", "buildings"
   add_foreign_key "batteries", "employees"
   add_foreign_key "building_details", "buildings"
   add_foreign_key "buildings", "addresses"
   add_foreign_key "buildings", "customers"
   add_foreign_key "columns", "batteries"
+  add_foreign_key "customers", "addresses"
   add_foreign_key "customers", "users"
   add_foreign_key "elevators", "columns"
 end
