@@ -46,6 +46,8 @@ end
     )
 
 
+
+
 # 25.times do 
 #     Contact.create!(
 #         full_name: Faker::Name.first_name,
