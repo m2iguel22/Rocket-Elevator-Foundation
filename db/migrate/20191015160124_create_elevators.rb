@@ -3,7 +3,7 @@ class CreateElevators < ActiveRecord::Migration[5.2]
     create_table :elevators do |t|
       t.integer :serial_number
       t.text :model
-      t.text :type
+      t.text :type_of_building
       t.text :status
       t.date :starting_service_date
       t.date :last_inspection_date
