@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_15_135308) do
+ActiveRecord::Schema.define(version: 2019_10_15_153646) do
+
+  create_table "building_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "building_id"
+    t.string "information_key"
+    t.string "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_details_on_building_id"
+  end
+
+  create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "address_id"
+    t.string "company_name"
+    t.string "full_name"
+    t.string "phone"
+    t.string "email"
+    t.string "company_description"
+    t.string "full_name_of_technical_service"
+    t.string "phone_of_technical_service"
+    t.string "email_of_technical_service"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name"
