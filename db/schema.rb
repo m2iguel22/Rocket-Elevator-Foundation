@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_10_15_172752) do
 
+
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "type"
     t.text "status"
@@ -71,6 +72,30 @@ ActiveRecord::Schema.define(version: 2019_10_15_172752) do
     t.index ["battery_id"], name: "index_columns_on_battery_id"
   end
 
+  end
+
+  create_table "buildings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "address_id"
+    t.text "admin_full_name"
+    t.text "admin_email"
+    t.text "admin_phone"
+    t.text "contact_technic_full_name"
+    t.text "contact_technic_email"
+    t.text "contact_technique_phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "columns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "battery_id"
+    t.text "type"
+    t.integer "number_of_floors_served"
+    t.text "status"
+    t.text "information"
+    t.text "notes"
+  end
+
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "address_id"
@@ -87,7 +112,6 @@ ActiveRecord::Schema.define(version: 2019_10_15_172752) do
   end
 
   create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "column_id"
     t.integer "serial_number"
     t.text "model"
     t.text "type"
@@ -97,6 +121,8 @@ ActiveRecord::Schema.define(version: 2019_10_15_172752) do
     t.text "inspection_certificate"
     t.text "information"
     t.text "notes"
+    t.bigint "column_id"
+    t.index ["column_id"], name: "index_elevators_on_column_id"
   end
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -161,6 +187,8 @@ ActiveRecord::Schema.define(version: 2019_10_15_172752) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+
   add_foreign_key "batteries", "buildings"
   add_foreign_key "columns", "batteries"
+  add_foreign_key "elevators", "columns"
 end

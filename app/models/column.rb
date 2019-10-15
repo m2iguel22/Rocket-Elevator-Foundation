@@ -1,5 +1,3 @@
 class Column < ApplicationRecord
-
-belongs_to :battery
-
+    belongs_to :battery
 end
