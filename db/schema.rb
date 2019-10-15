@@ -42,6 +42,19 @@ ActiveRecord::Schema.define(version: 2019_10_15_160124) do
     t.text "department"
     t.text "project_detail"
     t.text "message"
+  end
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "type"
+    t.text "status"
+    t.text "entity"
+    t.text "number_and_street"
+    t.text "appartment_or_suit"
+    t.text "city"
+    t.text "zip_code"
+    t.text "country"
+    t.text "notes"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,6 +70,19 @@ ActiveRecord::Schema.define(version: 2019_10_15_160124) do
     t.text "inspection_certificate"
     t.text "information"
     t.text "notes"
+  end
+    
+  create_table "buildings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "address_id"
+    t.text "admin_full_name"
+    t.text "admin_email"
+    t.text "admin_phone"
+    t.text "contact_technic_full_name"
+    t.text "contact_technic_email"
+    t.text "contact_technique_phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
