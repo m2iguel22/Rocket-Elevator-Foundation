@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_15_153646) do
+ActiveRecord::Schema.define(version: 2019_10_15_160124) do
 
   create_table "building_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "building_id"
@@ -32,6 +32,77 @@ ActiveRecord::Schema.define(version: 2019_10_15_153646) do
     t.string "full_name_of_technical_service"
     t.string "phone_of_technical_service"
     t.string "email_of_technical_service"
+  end
+
+  create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "building_id"
+    t.text "type"
+    t.text "status"
+    t.integer "employee_id"
+    t.date "starting_service_date"
+    t.date "last_inspection_date"
+    t.integer "operation_certificate"
+    t.text "information"
+    t.text "notes"
+  end
+
+  create_table "columns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "battery_id"
+    t.text "type"
+    t.integer "number_of_floors_served"
+    t.text "status"
+    t.text "information"
+    t.text "notes"
+  end
+
+  create_table "contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "full_name"
+    t.text "company"
+    t.text "email"
+    t.text "phone"
+    t.text "project"
+    t.text "department"
+    t.text "project_detail"
+    t.text "message"
+  end
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "type"
+    t.text "status"
+    t.text "entity"
+    t.text "number_and_street"
+    t.text "appartment_or_suit"
+    t.text "city"
+    t.text "zip_code"
+    t.text "country"
+    t.text "notes"
+
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "column_id"
+    t.integer "serial_number"
+    t.text "model"
+    t.text "type"
+    t.text "status"
+    t.date "starting_service_date"
+    t.date "last_inspection_date"
+    t.text "inspection_certificate"
+    t.text "information"
+    t.text "notes"
+  end
+    
+  create_table "buildings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "address_id"
+    t.text "admin_full_name"
+    t.text "admin_email"
+    t.text "admin_phone"
+    t.text "contact_technic_full_name"
+    t.text "contact_technic_email"
+    t.text "contact_technique_phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,6 +113,7 @@ ActiveRecord::Schema.define(version: 2019_10_15_153646) do
     t.string "title"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_employees_on_email", unique: true
