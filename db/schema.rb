@@ -13,14 +13,14 @@
 ActiveRecord::Schema.define(version: 2019_10_15_212225) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "type_of_address"
-    t.text "status"
-    t.text "entity"
-    t.text "number_and_street"
-    t.text "appartment_or_suit"
-    t.text "city"
-    t.text "zip_code"
-    t.text "country"
+    t.string "type_of_address"
+    t.string "status"
+    t.string "entity"
+    t.string "number_and_street"
+    t.string "appartment_or_suit"
+    t.string "city"
+    t.string "zip_code"
+    t.string "country"
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2019_10_15_212225) do
 
   create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "type_of_battery"
-    t.text "status"
+    t.string "status"
     t.date "starting_service_date"
     t.date "last_inspection_date"
     t.integer "operation_certificate"
@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 2019_10_15_212225) do
   end
 
   create_table "building_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "information_key"
-    t.string "value"
+    t.text "information_key"
+    t.text "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "building_id"
@@ -52,12 +52,12 @@ ActiveRecord::Schema.define(version: 2019_10_15_212225) do
   end
 
   create_table "buildings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "admin_full_name"
-    t.text "admin_email"
-    t.text "admin_phone"
-    t.text "contact_technic_full_name"
-    t.text "contact_technic_email"
-    t.text "contact_technique_phone"
+    t.string "admin_full_name"
+    t.string "admin_email"
+    t.string "admin_phone"
+    t.string "contact_technic_full_name"
+    t.string "contact_technic_email"
+    t.string "contact_technique_phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "customer_id"
@@ -67,9 +67,9 @@ ActiveRecord::Schema.define(version: 2019_10_15_212225) do
   end
 
   create_table "columns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "type_of_column"
+    t.string "type_of_column"
     t.integer "number_of_floors_served"
-    t.text "status"
+    t.string "status"
     t.text "information"
     t.text "notes"
     t.bigint "battery_id"
@@ -93,12 +93,12 @@ ActiveRecord::Schema.define(version: 2019_10_15_212225) do
 
   create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "serial_number"
-    t.text "model"
-    t.text "type_of_building"
-    t.text "status"
+    t.string "model"
+    t.string "type_of_building"
+    t.string "status"
     t.date "starting_service_date"
     t.date "last_inspection_date"
-    t.text "inspection_certificate"
+    t.string "inspection_certificate"
     t.text "information"
     t.text "notes"
     t.bigint "column_id"
@@ -117,13 +117,13 @@ ActiveRecord::Schema.define(version: 2019_10_15_212225) do
   end
 
   create_table "leads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "full_name"
-    t.text "company_name"
-    t.text "email"
-    t.text "phone"
-    t.text "project_name"
+    t.string "full_name"
+    t.string "company_name"
+    t.string "email"
+    t.string "phone"
+    t.string "project_name"
     t.text "project_description"
-    t.text "department_in_charge"
+    t.string "department_in_charge"
     t.text "message"
     t.binary "attachment"
     t.datetime "created_at", null: false
