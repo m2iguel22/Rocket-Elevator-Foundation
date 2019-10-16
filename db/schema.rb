@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 2019_10_15_212225) do
   end
 
   create_table "building_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "information_key"
-    t.text "value"
+    t.string "information_key"
+    t.string "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "building_id"
@@ -146,10 +146,10 @@ ActiveRecord::Schema.define(version: 2019_10_15_212225) do
     t.integer "open_hours"
     t.integer "estimate_cage_number"
     t.string "range_of_elevator"
-    t.float "unit_price"
-    t.float "elevator_price"
-    t.integer "installation_cost"
-    t.float "total_price"
+    t.decimal "unit_price"
+    t.decimal "elevator_price"
+    t.decimal "installation_cost"
+    t.decimal "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
