@@ -3,7 +3,7 @@ class CreateActiveStorageData < ActiveRecord::Migration[5.2]
   def change
     create_table :active_storage_data do |t|
       t.string :key, null: false
-      t.binary :io, null: false
+      t.binary :io, null: false, limit: 512.megabytes
 
       t.timestamps
     end
