@@ -16,10 +16,13 @@ Rails.application.routes.draw do
   get '/quote_confirm', to: 'pages#quote_confirm'
   get '/terms_and_conditions', to: 'pages#terms_and_conditions'
 
-  get '/leads', to: 'leads#create'
+  #get '/leads', to: 'leads#create'
  
 
   get 'home/index'
+  
   resources :quotes
   resources :employees
+  resources :leads
+
 end

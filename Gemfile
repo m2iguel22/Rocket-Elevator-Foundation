@@ -91,3 +91,5 @@ gem 'rails_admin_rollincode', '~> 1.0'
 gem 'devise'
 
 gem 'cancan'
+
+gem 'activestorage-database-service', github: 'TitovDigital/activestorage-database-service'
