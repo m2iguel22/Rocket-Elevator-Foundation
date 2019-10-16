@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-include Faker
+
 User.create!(email: "nicolas.genest@codeboxx.biz", password: "123456", password_confirmation: "123456", admin: true)
 User.create!(email: "david.boutin@codeboxx.biz", password: "123456", password_confirmation: "123456", admin: true)
 User.create!(email: "remi.gagnon@codeboxx.biz", password: "123456", password_confirmation: "123456", admin: true)
@@ -38,28 +38,56 @@ end
  
 1.times do 
     Employee.create!(
+
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
         title: Faker::Construction.role,     
         email: Faker::Internet.email,
         password: '123456'
     )
+end
 
-
-
-
-# 25.times do 
-#     Contact.create!(
-#         full_name: Faker::Name.first_name,
-#         company:
-#         email: Faker::Internet.email,                       ///// we wanted to create a contact table. We don't know if we'll have time so we'll just leave the faker here
-#         phone:                                                   for the moment. 
-#         project_name:
-#         department_in_charge: Faker::Commerce.department
-#         project:
-#         message:
-
-
-        
-#     )
+1.times do
+    Lead.create!(
+    
+        full_name: Faker::Name.name,
+        company_name: Faker::Company.name,
+        email: Faker::Internet.email,
+        phone: Faker::PhoneNumber.phone_number,
+        project_name: Faker::Company.industry,
+        project_description: Faker::Company.type,
+        department_in_charge: Faker::Commerce.department,
+        message: Faker::Construction.subcontract_category
+    )
   end
+
+1.times do
+    Address.create!(
+
+        type_of_address: Faker::Name.name,
+        status: Faker::Name.name,
+        entity: Faker::Name.name,
+        number_and_street: Faker::Address.street_address,
+        appartment_or_suit: Faker::Address.secondary_address,
+        city: Faker::Address.city,
+        zip_code: Faker::Address.zip_code,
+        country: Faker::Address.country_name_to_code(name:'canada'),
+        notes: Faker::Types.rb_string
+    )
+    end
+
+1.times do
+    Customer.create!(
+
+        company_name: Faker::Company.name,
+        full_name: Faker::Name.name,
+        phone: Faker::PhoneNumber.phone_number,
+        email: Faker::Internet.email,
+        company_description:  Faker::Company.type,
+        full_name_of_technical_service: Faker::Company.name,
+        phone_of_technical_service: Faker::PhoneNumber.phone_number,
+        email_of_technical_service: Faker::Internet.email,
+        address_id: 1,
+        user_id: 1
+    )
+ end
