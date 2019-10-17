@@ -30,7 +30,6 @@ function corcalcCageNumber(){
                     var elevCol = Math.ceil((corFloorNumber + corUndergrNumber)/20);
                     var corCagePerCol= Math.ceil(elevNeeded/elevCol);
                     var cageNumber = corCagePerCol * elevCol;
-                    $("#estimateCageNumber2").val(cageNumber);
                     $("#estimateCageNumber").val(cageNumber);
 }
 
