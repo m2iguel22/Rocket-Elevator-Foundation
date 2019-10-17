@@ -25,4 +25,10 @@ Rails.application.routes.draw do
   resources :employees
   resources :leads
 
+  # Rails.application.routes.draw do
+  #   devise_for :users, controllers: {
+  #     sessions: 'users/sessions'
+  #   }
+  # end
+
 end

@@ -47,6 +47,7 @@ class QuotesController < ApplicationController
 
     @quote = Quote.new(quote_params)
     
+    
     @quote.type_of_building = typeOfBuilding
 
     if typeOfBuilding == 'residential'
@@ -131,14 +132,24 @@ class QuotesController < ApplicationController
       @quote.email = email
       @quote.phone_number = phone
 
-      @quote.save!
+      if verify_recaptcha(model: @quote)
+        @quote.save!
     
-      redirect_to quote_confirm_path
+        redirect_to quote_confirm_path
+      else
+        redirect_to root_path
+      end
     end
 
     if typeOfBuilding == nil
       redirect_to quote_new_path
     end
+
+    # if verify_recaptcha(model: @quote) && @quote.save
+    #   redirect_to @quote
+    # else
+    #   render 
+    # end
 
   end
   
