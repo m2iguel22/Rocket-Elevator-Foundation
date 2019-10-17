@@ -6,7 +6,7 @@ class CreateFactelevator < ActiveRecord::Migration[5.2]
       t.date :initial_service_date
       t.integer :building_id
       t.integer :customer_id
-      t.string :building_city
+      t.string :city_of_building
     end
   end
 end

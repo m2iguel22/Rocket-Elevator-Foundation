@@ -33,8 +33,8 @@ class PgSync
     def sync_quotes
 
         Quote.all.each do |quote|
-            sql_string = "INSERT INTO factquotes(company_name,email,nbelevator) 
-            VALUES ('#{quote.name}','#{quote.email}','#{quote.nbelevator}');"    
+            sql_string = "INSERT INTO fact_quotes(creation_date,company_name,email,number_of_elevator) 
+            VALUES ('#{quote.created_at}','#{quote.name}','#{quote.email}','#{quote.estimate_cage_number}');"    
             self.pg_connection.exec(sql_string)    
         end
     end
@@ -42,8 +42,8 @@ class PgSync
     def sync_contact
        
         Lead.all.each do |lead| 
-            sql_string =  "INSERT INTO factcontact(company_name,email,project_name)
-            VALUES ('#{lead.name}','#{lead.email}','#{lead.project_name}');"
+            sql_string =  "INSERT INTO fact_contacts(creation_date,company_name,email,project_name)
+            VALUES ('#{lead.created_at}','#{lead.company_name}','#{lead.email}','#{lead.project_name}');"
             self.pg_connection.exec(sql_string) 
         end
     end
@@ -51,8 +51,8 @@ class PgSync
     def sync_elevator
        
         Elevator.all.each do |elevator| 
-            sql_string = "INSERT INTO factelevator(serial_number,initial_service_name,building_city) 
-            VALUES ('#{elevator.serial_number}','#{elevator.starting_service_date}','#{elevator.city}');"
+            sql_string = "INSERT INTO fact_elevators (serial_number,initial_service_date,building_id,customer_id,city_of_building) 
+            VALUES ('#{elevator.serial_number}','#{elevator.starting_service_date}','#{elevator.column.battery.building.id}','#{elevator.column.battery.building.customer_id}','#{elevator.column.battery.building.address.city}');"
             self.pg_connection.exec(sql_string) 
         end
      end
@@ -60,8 +60,20 @@ class PgSync
      def sync_dim_customers
 
         Customer.all.each do |customer| 
-            sql_string = "INSERT INTO factelevator(company_name,company_contact_name,company_contact_email,number_elevators,client_city)
-            VALUES ('#{customer.company_name}','#{customer.full_name}','#{customer.email}','#{customer.email}','#{customer.email}');"
+            nbElevator = 1
+            customer.buildings.each do |building|
+               
+                building.batteries.each do |battery|
+                    
+                    battery.columns.each do |column|
+                      
+                        nbElevator = column.elevators.length
+                           
+                    end
+                end
+            end
+            sql_string = "INSERT INTO dim_customers (company_name,company_contact_name,company_contact_email,number_elevators,client_city)
+            VALUES ('#{customer.company_name}','#{customer.full_name}'','#{customer.email}','#{nbElevator}','#{customer.address.city}');"
             self.pg_connection.exec(sql_string) 
         end
     end
