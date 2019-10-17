@@ -215,7 +215,7 @@ end
 75.times do
     Quote.create!(
 
-        name: Faker::Name.name,
+        name: Faker::Name.first_name,
         email: Faker::Internet.email,
         phone_number: Faker::PhoneNumber.phone_number,
         type_of_building: type_of_building_array.sample,
@@ -230,10 +230,10 @@ end
         open_hours: Faker::Number.number(2),
         estimate_cage_number: Faker::Number.number(2),
         range_of_elevator: type_of_service_array.sample,
-        unit_price: Faker::Number.number(4),
-        elevator_price: Faker::Number.number(5),
-        installation_cost: Faker::Number.number(5),
-        total_price: Faker::Number.number(6),
+        unit_price: Faker::Commerce.price(),
+        elevator_price: Faker::Commerce.price(),
+        installation_cost: Faker::Commerce.price(),
+        total_price: Faker::Commerce.price(),
         created_at: Faker::Time.between(6.months.ago, 2.weeks.ago, :all),
         updated_at: Faker::Time.between(2.weeks.ago, Time.now, :all)
 )
