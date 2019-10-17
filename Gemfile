@@ -96,6 +96,5 @@ gem 'cancan'
 # postgresql
 gem 'pg', '~> 0.18.4'
 
-=======
 gem 'activestorage-database-service', github: 'TitovDigital/activestorage-database-service'
 
