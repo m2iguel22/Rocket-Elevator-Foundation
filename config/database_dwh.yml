@@ -16,6 +16,7 @@ development:
   encoding: utf8
   host: localhost
   pool: 10
+  port: 5432
   database: dwh_development
   username: postgres
   password: codeboxx
