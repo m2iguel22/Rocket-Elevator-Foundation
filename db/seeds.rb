@@ -57,7 +57,7 @@ end
 40.times do
     Lead.create!(
 
-        full_name: Faker::Name.name,
+        full_name: Faker::Name.first_name,
         company_name: Faker::Company.name,
         email: Faker::Internet.email,
         phone: Faker::PhoneNumber.phone_number,
@@ -115,7 +115,7 @@ end
     Customer.create!(
 
         company_name: Faker::Company.name,
-        full_name: Faker::Name.name,
+        full_name: Faker::Name.first_name,
         phone: Faker::PhoneNumber.phone_number,
         email: Faker::Internet.email,
         company_description:  Faker::Company.type,
@@ -135,7 +135,7 @@ end
  15.times do
     Building.create!(
 
-        admin_full_name: Faker::Name.name,
+        admin_full_name: Faker::Name.first_name,
         admin_email: Faker::Internet.email,
         admin_phone: Faker::PhoneNumber.phone_number,
         contact_technic_full_name: Faker::Name.name,
@@ -215,7 +215,7 @@ end
 75.times do
     Quote.create!(
 
-        name: Faker::Name.name,
+        name: Faker::Name.first_name,
         email: Faker::Internet.email,
         phone_number: Faker::PhoneNumber.phone_number,
         type_of_building: type_of_building_array.sample,

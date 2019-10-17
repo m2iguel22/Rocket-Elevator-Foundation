@@ -20,20 +20,20 @@ ActiveRecord::Schema.define(version: 2019_10_16_184418) do
     t.string "company_name"
     t.string "company_contact_name"
     t.string "company_contact_email"
-    t.integer "nb_elevators"
+    t.integer "number_elevators"
     t.string "client_city"
   end
 
-  create_table "factcontacts", force: :cascade do |t|
-    t.integer "contactid"
+  create_table "fact_contacts", force: :cascade do |t|
+    t.integer "contact_id"
     t.date "creation_date"
     t.string "company_name"
     t.string "email"
     t.string "project_name"
   end
 
-  create_table "factelevators", force: :cascade do |t|
-    t.integer "elevatorid"
+  create_table "fact_elevators", force: :cascade do |t|
+    t.integer "elevator_id"
     t.string "serial_number"
     t.date "initial_service_date"
     t.integer "building_id"
@@ -41,12 +41,12 @@ ActiveRecord::Schema.define(version: 2019_10_16_184418) do
     t.string "city_of_building"
   end
 
-  create_table "factquotes", force: :cascade do |t|
-    t.integer "quoteid"
-    t.date "creation_date"
+  create_table "fact_quotes", force: :cascade do |t|
+    t.integer "quote_id"
+    t.datetime "creation_date"
     t.string "company_name"
     t.string "email"
-    t.integer "nbelevator"
+    t.integer "number_of_elevator"
   end
 
 end
