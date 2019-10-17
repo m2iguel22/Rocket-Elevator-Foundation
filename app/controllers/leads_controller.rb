@@ -1,4 +1,7 @@
 class LeadsController < ApplicationController
+
+    skip_before_action :verify_authenticity_token
+
     def create
         @lead = Lead.new
 
@@ -10,9 +13,13 @@ class LeadsController < ApplicationController
         @lead.project_description = params['DepartmentInCharge']
         @lead.department_in_charge = params['ProjectDescription']
         @lead.message = params['Message']
-        @lead.attachment = params['Attachment']
+
+        
+        @lead.attachment.attach(params['Attachment']) 
 
         @lead.save!
-        redirect_to quote_confirm_path
+        
+        
+
     end
 end
