@@ -16,10 +16,10 @@ class CreateQuotes < ActiveRecord::Migration[5.2]
       t.integer :open_hours
       t.integer :estimate_cage_number
       t.string :range_of_elevator
-      t.decimal :unit_price
-      t.decimal :elevator_price
-      t.decimal :installation_cost
-      t.decimal :total_price, precision: 10, scale: 2
+      t.decimal :unit_price, precision:10, scale:2
+      t.decimal :elevator_price, precision:10, scale:2
+      t.decimal :installation_cost, precision:10, scale:2
+      t.decimal :total_price, precision:10, scale:2
       t.timestamps
     end
   end
