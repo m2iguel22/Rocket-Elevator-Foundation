@@ -90,4 +90,11 @@ gem 'rails_admin_rollincode', '~> 1.0'
 # devise
 gem 'devise'
 
+# cancan
 gem 'cancan'
+
+# postgresql
+gem 'pg', '~> 0.18.4'
+
+gem 'activestorage-database-service', github: 'TitovDigital/activestorage-database-service'
+
