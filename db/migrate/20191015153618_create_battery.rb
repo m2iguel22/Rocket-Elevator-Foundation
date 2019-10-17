@@ -3,7 +3,7 @@ class CreateBattery < ActiveRecord::Migration[5.2]
     create_table :batteries do |t|
 
       t.string :type_of_battery
-      t.text :status
+      t.string :status
       t.date :starting_service_date
       t.date :last_inspection_date
       t.integer :operation_certificate
