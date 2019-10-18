@@ -13,13 +13,20 @@ class LeadsController < ApplicationController
         @lead.project_description = params['DepartmentInCharge']
         @lead.department_in_charge = params['ProjectDescription']
         @lead.message = params['Message']
+        # @lead.image = params['Attachment']
 
         
-        @lead.attachment.attach(params['Attachment']) 
+        # @lead.attachment.attach(params['Attachment']) 
+
+        # comment = Comment.create! params.require(:comment).permit(:content)
+        @lead.image.attach(params['Attachment'])
+        
+        # redirect_to comment  
 
         @lead.save!
         
         redirect_to quote_confirm_path
 
     end
+
 end
