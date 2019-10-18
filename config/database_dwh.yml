@@ -14,12 +14,12 @@
 development:
   adapter: postgresql
   encoding: utf8
-  host: localhost
+  host: codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com 
   pool: 10
   port: 5432
-  database: dwh_development
-  username: postgres
-  password: codeboxx
+  database: therockets
+  username: codeboxx
+  password: Codeboxx1!
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
