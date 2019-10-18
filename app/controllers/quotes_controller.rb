@@ -41,11 +41,13 @@ class QuotesController < ApplicationController
     totalPrice = params['Total_price']
 
     name = params['Name']
+    company = params['Company']
     email = params['Email']
     phone = params['Phone']
     
 
     @quote = Quote.new(quote_params)
+    
     
     @quote.type_of_building = typeOfBuilding
 
@@ -61,6 +63,7 @@ class QuotesController < ApplicationController
       @quote.installation_cost = installationCost
       @quote.total_price = totalPrice
       @quote.name = name
+      @quote.company = company
       @quote.email = email
       @quote.phone_number = phone
 
@@ -83,6 +86,7 @@ class QuotesController < ApplicationController
       @quote.installation_cost = installationCost
       @quote.total_price = totalPrice
       @quote.name = name
+      @quote.company = company
       @quote.email = email
       @quote.phone_number = phone
 
@@ -105,6 +109,7 @@ class QuotesController < ApplicationController
       @quote.installation_cost = installationCost
       @quote.total_price = totalPrice
       @quote.name = name
+      @quote.company = company
       @quote.email = email
       @quote.phone_number = phone
 
@@ -128,17 +133,28 @@ class QuotesController < ApplicationController
       @quote.installation_cost = installationCost
       @quote.total_price = totalPrice
       @quote.name = name
+      @quote.company = company
       @quote.email = email
       @quote.phone_number = phone
 
-      @quote.save!
+      if verify_recaptcha(model: @quote)
+        @quote.save!
     
-      redirect_to quote_confirm_path
+        redirect_to quote_confirm_path
+      else
+        redirect_to root_path
+      end
     end
 
     if typeOfBuilding == nil
       redirect_to quote_new_path
     end
+
+    # if verify_recaptcha(model: @quote) && @quote.save
+    #   redirect_to @quote
+    # else
+    #   render 
+    # end
 
   end
   

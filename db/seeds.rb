@@ -40,7 +40,7 @@ Employee.create!(first_name: 'Nadya', last_name: 'Fortier', title: 'Director', e
 Employee.create!(first_name: 'Martin', last_name: 'Chantal', title: 'Engineer', email: 'martin.chantal@codeboxx.biz', password: '123456', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
  
 
-20.times do 
+43.times do 
     Employee.create!(
 
         first_name: Faker::Name.first_name,
@@ -162,7 +162,7 @@ end
 end
 
     building_id_array = [*1..15]
-    employee_id_array = [*11..25]
+    employee_id_array = [*11..52]
 
 15.times do
     Battery.create!(
@@ -181,6 +181,20 @@ end
 
     battery_id_array =[*1..15]
 
+15.times do
+    Column.create!(
+
+        type_of_column: type_of_building_array.sample,
+        number_of_floors_served: Faker::Number.number(2),
+        status: status_array.sample,
+        information: Faker::Types.rb_string,
+        notes: Faker::Types.rb_string,
+        battery_id: battery_id_array.delete(battery_id_array.sample)
+    )
+end
+
+    battery_id_array =[*1..15]  
+
 60.times do
     Column.create!(
 
@@ -193,9 +207,27 @@ end
     )
 end
 
-    column_id_array =[*1..60]
+    column_id_array =[*1..75]
 
-250.times do
+75.times do
+    Elevator.create!(
+
+        serial_number: Faker::Code.isbn,
+        model: type_of_service_array.sample,
+        type_of_building: type_of_building_array.sample,
+        status: status_array.sample,
+        starting_service_date: Faker::Time.between(3.years.ago, 7.months.ago, :all),
+        last_inspection_date: Faker::Time.between(1.year.ago, 1.week.ago, :all),
+        inspection_certificate: Faker::Code.isbn,
+        information: Faker::Types.rb_string,
+        notes: Faker::Types.rb_string,
+        column_id: column_id_array.delete(column_id_array.sample)
+    )
+end
+
+    column_id_array =[*1..75]
+
+225.times do
     Elevator.create!(
 
         serial_number: Faker::Code.isbn,
@@ -216,6 +248,7 @@ end
     Quote.create!(
 
         name: Faker::Name.first_name,
+        company: Faker::Company.name,
         email: Faker::Internet.email,
         phone_number: Faker::PhoneNumber.phone_number,
         type_of_building: type_of_building_array.sample,
@@ -230,10 +263,10 @@ end
         open_hours: Faker::Number.number(2),
         estimate_cage_number: Faker::Number.number(2),
         range_of_elevator: type_of_service_array.sample,
-        unit_price: Faker::Number.number(4),
-        elevator_price: Faker::Number.number(5),
-        installation_cost: Faker::Number.number(5),
-        total_price: Faker::Number.number(6),
+        unit_price: Faker::Commerce.price(),
+        elevator_price: Faker::Commerce.price(),
+        installation_cost: Faker::Commerce.price(),
+        total_price: Faker::Commerce.price(),
         created_at: Faker::Time.between(6.months.ago, 2.weeks.ago, :all),
         updated_at: Faker::Time.between(2.weeks.ago, Time.now, :all)
 )

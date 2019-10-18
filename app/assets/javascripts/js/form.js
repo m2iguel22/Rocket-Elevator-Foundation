@@ -3,7 +3,7 @@
 function comcalcCageNumber(){
     var cageNumber = $("#comElevCageNumber").val();
     $("#estimateCageNumber").val(cageNumber);
-    $("#estimateCageNumber2").val(cageNumber);
+    $("#E").val(cageNumber);
 }
 
 function rescalcCageNumber(){
@@ -19,7 +19,8 @@ function rescalcCageNumber(){
         var cageNumber = Math.ceil(cage*(resFloorNumber/20));
     }
     $("#estimateCageNumber").val(cageNumber);
-    $("#estimateCageNumber2").val(cageNumber);
+    $("#E").val(cageNumber);
+    
 }
 
 function corcalcCageNumber(){
@@ -32,7 +33,8 @@ function corcalcCageNumber(){
                     var corCagePerCol= Math.ceil(elevNeeded/elevCol);
                     var cageNumber = corCagePerCol * elevCol;
                     $("#estimateCageNumber").val(cageNumber);
-                    $("#estimateCageNumber2").val(cageNumber);
+                    $("#E").val(cageNumber);
+                   
 }
 
 function hybcalcCageNumber(){
@@ -45,7 +47,8 @@ function hybcalcCageNumber(){
             var corCagePerCol= Math.ceil(elevNeeded/elevCol);
             var cageNumber = corCagePerCol * elevCol;
             $("#estimateCageNumber").val(cageNumber);
-            $("#estimateCageNumber2").val(cageNumber);
+            $("#E").val(cageNumber);
+          
 }
 
 
@@ -53,6 +56,7 @@ function hybcalcCageNumber(){
     // fonction to display nothing
     function cageNumberDisplNull(){
         $("#estimateCageNumber").val("");
+        $("#E").val("");
     }
     // end of fonction to display nothing
     

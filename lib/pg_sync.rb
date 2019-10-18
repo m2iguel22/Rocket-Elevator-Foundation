@@ -33,8 +33,8 @@ class PgSync
     def sync_quotes
 
         Quote.all.each do |quote|
-            sql_string = "INSERT INTO fact_quotes(creation_date,company_name,email,number_of_elevator) 
-            VALUES ('#{quote.created_at}','#{quote.name}','#{quote.email}','#{quote.estimate_cage_number}');"    
+            sql_string = "INSERT INTO fact_quotes(quote_id,creation_date,company_name,email,number_of_elevator) 
+            VALUES (#{quote.id},'#{quote.created_at}','#{quote.company}','#{quote.email}','#{quote.estimate_cage_number}');"    
             self.pg_connection.exec(sql_string)    
         end
     end
@@ -42,8 +42,8 @@ class PgSync
     def sync_contact
        
         Lead.all.each do |lead| 
-            sql_string =  "INSERT INTO fact_contacts(creation_date,company_name,email,project_name)
-            VALUES ('#{lead.created_at}','#{lead.company_name}','#{lead.email}','#{lead.project_name}');"
+            sql_string =  "INSERT INTO fact_contacts(contact_id,creation_date,company_name,email,project_name)
+            VALUES (#{lead.id},'#{lead.created_at}','#{lead.company_name}','#{lead.email}','#{lead.project_name}');"
             self.pg_connection.exec(sql_string) 
         end
     end
@@ -51,8 +51,8 @@ class PgSync
     def sync_elevator
        
         Elevator.all.each do |elevator| 
-            sql_string = "INSERT INTO fact_elevators (serial_number,initial_service_date,building_id,customer_id,city_of_building) 
-            VALUES ('#{elevator.serial_number}','#{elevator.starting_service_date}','#{elevator.column.battery.building.id}','#{elevator.column.battery.building.customer_id}','#{elevator.column.battery.building.address.city}');"
+            sql_string = "INSERT INTO fact_elevators (elevator_id,serial_number,initial_service_date,building_id,customer_id,city_of_building) 
+            VALUES (#{elevator.id},'#{elevator.serial_number}','#{elevator.starting_service_date}','#{elevator.column.battery.building.id}','#{elevator.column.battery.building.customer.id}','#{elevator.column.battery.building.address.city}');"
             self.pg_connection.exec(sql_string) 
         end
      end
@@ -72,8 +72,8 @@ class PgSync
                     end
                 end
             end
-            sql_string = "INSERT INTO dim_customers (company_name,company_contact_name,company_contact_email,number_elevators,client_city)
-            VALUES ('#{customer.company_name}','#{customer.full_name}'','#{customer.email}','#{nbElevator}','#{customer.address.city}');"
+            sql_string = "INSERT INTO dim_customers (creation_date,company_name,company_contact_name,company_contact_email,number_elevators,client_city)
+            VALUES ('#{customer.creation_date}','#{customer.company_name}','#{customer.full_name}'','#{customer.email}','#{nbElevator}','#{customer.address.city}');"
             self.pg_connection.exec(sql_string) 
         end
     end

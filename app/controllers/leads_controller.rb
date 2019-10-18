@@ -19,7 +19,7 @@ class LeadsController < ApplicationController
 
         @lead.save!
         
-        
+        redirect_to quote_confirm_path
 
     end
 end
