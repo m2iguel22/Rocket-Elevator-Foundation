@@ -41,6 +41,7 @@ class QuotesController < ApplicationController
     totalPrice = params['Total_price']
 
     name = params['Name']
+    company = params['Company']
     email = params['Email']
     phone = params['Phone']
     
@@ -62,6 +63,7 @@ class QuotesController < ApplicationController
       @quote.installation_cost = installationCost
       @quote.total_price = totalPrice
       @quote.name = name
+      @quote.company = company
       @quote.email = email
       @quote.phone_number = phone
 
@@ -84,6 +86,7 @@ class QuotesController < ApplicationController
       @quote.installation_cost = installationCost
       @quote.total_price = totalPrice
       @quote.name = name
+      @quote.company = company
       @quote.email = email
       @quote.phone_number = phone
 
@@ -106,6 +109,7 @@ class QuotesController < ApplicationController
       @quote.installation_cost = installationCost
       @quote.total_price = totalPrice
       @quote.name = name
+      @quote.company = company
       @quote.email = email
       @quote.phone_number = phone
 
@@ -129,6 +133,7 @@ class QuotesController < ApplicationController
       @quote.installation_cost = installationCost
       @quote.total_price = totalPrice
       @quote.name = name
+      @quote.company = company
       @quote.email = email
       @quote.phone_number = phone
 
