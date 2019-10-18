@@ -248,6 +248,7 @@ end
     Quote.create!(
 
         name: Faker::Name.first_name,
+        company: Faker::Company.name,
         email: Faker::Internet.email,
         phone_number: Faker::PhoneNumber.phone_number,
         type_of_building: type_of_building_array.sample,

@@ -162,6 +162,7 @@ ActiveRecord::Schema.define(version: 2019_10_16_201412) do
   create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "quote_id"
     t.string "name"
+    t.string "company"
     t.string "email"
     t.string "phone_number"
     t.string "type_of_building"
@@ -176,10 +177,10 @@ ActiveRecord::Schema.define(version: 2019_10_16_201412) do
     t.integer "open_hours"
     t.integer "estimate_cage_number"
     t.string "range_of_elevator"
-    t.string "unit_price"
-    t.string "elevator_price"
-    t.string "installation_cost"
-    t.string "total_price"
+    t.decimal "unit_price", precision: 10, scale: 2
+    t.decimal "elevator_price", precision: 10, scale: 2
+    t.decimal "installation_cost", precision: 10, scale: 2
+    t.decimal "total_price", precision: 10, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
