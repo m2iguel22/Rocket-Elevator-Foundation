@@ -43,8 +43,8 @@ Employee.create!(first_name: 'Martin', last_name: 'Chantal', title: 'Engineer', 
 43.times do 
     Employee.create!(
 
-        first_name: Faker::Name.first_name,
-        last_name: Faker::Name.last_name,
+        first_name: Faker::Name.first_name.delete("\'"),
+        last_name: Faker::Name.last_name.delete("\'"),
         title: Faker::Construction.role,     
         email: Faker::Internet.email,
         password: '123456',
@@ -58,7 +58,7 @@ end
     Lead.create!(
 
         full_name: Faker::Name.name.delete("\'"),
-        company_name: Faker::Company.name,
+        company_name: Faker::Company.name.delete("\'"),
         email: Faker::Internet.email,
         phone: Faker::PhoneNumber.phone_number,
         project_name: Faker::Company.industry,
@@ -77,12 +77,12 @@ end
 10.times do
     Address.create!(
     
-        type_of_address: Faker::Name.name,
+        type_of_address: Faker::Name.name.delete("\'"),
         status: status_array.sample,
         entity: 'Billing Address',
-        number_and_street: Faker::Address.street_address,
-        appartment_or_suit: Faker::Address.secondary_address,
-        city: Faker::Address.city,
+        number_and_street: Faker::Address.street_address.delete("\'"),
+        appartment_or_suit: Faker::Address.secondary_address.delete("\'"),
+        city: Faker::Address.city.delete("\'"),
         zip_code: Faker::Address.zip_code,
         country: Faker::Address.country_name_to_code(name:'canada'),
         notes: Faker::Types.rb_string,
@@ -94,12 +94,12 @@ end
 15.times do
     Address.create!(
 
-        type_of_address: Faker::Name.name,
+        type_of_address: Faker::Name.name.delete("\'"),
         status: status_array.sample,
         entity: 'Operational Building',
-        number_and_street: Faker::Address.street_address,
-        appartment_or_suit: Faker::Address.secondary_address,
-        city: Faker::Address.city,
+        number_and_street: Faker::Address.street_address.delete("\'"),
+        appartment_or_suit: Faker::Address.secondary_address.delete("\'"),
+        city: Faker::Address.city.delete("\'"),
         zip_code: Faker::Address.zip_code,
         country: Faker::Address.country_name_to_code(name:'canada'),
         notes: Faker::Types.rb_string,
@@ -114,12 +114,12 @@ end
 10.times do
     Customer.create!(
 
-        company_name: Faker::Company.name,
+        company_name: Faker::Company.name.delete("\'"),
         full_name: Faker::Name.name.delete("\'"),
         phone: Faker::PhoneNumber.phone_number,
         email: Faker::Internet.email,
         company_description:  Faker::Company.type,
-        full_name_of_technical_service: Faker::Company.name,
+        full_name_of_technical_service: Faker::Company.name.delete("\'"),
         phone_of_technical_service: Faker::PhoneNumber.phone_number,
         email_of_technical_service: Faker::Internet.email,
         address_id: address_id_array.delete(address_id_array.sample),
@@ -135,10 +135,10 @@ end
  15.times do
     Building.create!(
 
-        admin_full_name: Faker::Name.first_name,
+        admin_full_name: Faker::Name.first_name.delete("\'"),
         admin_email: Faker::Internet.email,
         admin_phone: Faker::PhoneNumber.phone_number,
-        contact_technic_full_name: Faker::Name.name,
+        contact_technic_full_name: Faker::Name.name.delete("\'"),
         contact_technic_email: Faker::Internet.email,
         contact_technique_phone: Faker::PhoneNumber.phone_number,
         customer_id: customer_id_array.sample,
