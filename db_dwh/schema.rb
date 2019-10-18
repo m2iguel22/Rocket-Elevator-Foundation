@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2019_10_16_184418) do
   end
 
   create_table "fact_quotes", force: :cascade do |t|
-    t.integer "quote_id"
+    t.bigint "quote_id"
     t.datetime "creation_date"
     t.string "company_name"
     t.string "email"
