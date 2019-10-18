@@ -248,7 +248,7 @@ end
     Quote.create!(
 
         name: Faker::Name.name.delete("\'"),
-        company: Faker::Company.name,
+        company: Faker::Company.name.delete("\'"),
         email: Faker::Internet.email,
         phone_number: Faker::PhoneNumber.phone_number,
         type_of_building: type_of_building_array.sample,
