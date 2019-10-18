@@ -57,7 +57,7 @@ end
 40.times do
     Lead.create!(
 
-        full_name: Faker::Name.first_name,
+        full_name: Faker::Name.name.delete("\'"),
         company_name: Faker::Company.name,
         email: Faker::Internet.email,
         phone: Faker::PhoneNumber.phone_number,
@@ -115,11 +115,11 @@ end
     Customer.create!(
 
         company_name: Faker::Company.name,
-        full_name: Faker::Name.first_name,
+        full_name: Faker::Name.name.delete("\'"),
         phone: Faker::PhoneNumber.phone_number,
         email: Faker::Internet.email,
         company_description:  Faker::Company.type,
-        full_name_of_technical_service: Faker::Company.name,
+        full_name_of_technical_service: Faker::Name.name.delete("\'"),
         phone_of_technical_service: Faker::PhoneNumber.phone_number,
         email_of_technical_service: Faker::Internet.email,
         address_id: address_id_array.delete(address_id_array.sample),
@@ -247,7 +247,7 @@ end
 75.times do
     Quote.create!(
 
-        name: Faker::Name.first_name,
+        name: Faker::Name.name.delete("\'"),
         company: Faker::Company.name,
         email: Faker::Internet.email,
         phone_number: Faker::PhoneNumber.phone_number,
