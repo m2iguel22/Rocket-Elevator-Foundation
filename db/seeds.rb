@@ -119,7 +119,7 @@ end
         phone: Faker::PhoneNumber.phone_number,
         email: Faker::Internet.email,
         company_description:  Faker::Company.type,
-        full_name_of_technical_service: Faker::Name.name.delete("\'"),
+        full_name_of_technical_service: Faker::Company.name,
         phone_of_technical_service: Faker::PhoneNumber.phone_number,
         email_of_technical_service: Faker::Internet.email,
         address_id: address_id_array.delete(address_id_array.sample),
