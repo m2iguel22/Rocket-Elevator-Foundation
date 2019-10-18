@@ -101,3 +101,6 @@ gem 'activestorage-database-service', github: 'TitovDigital/activestorage-databa
 
 # whenever
 gem 'whenever', '~> 0.9.4',:require => false
+
+# rails admin charts
+gem 'rails_admin_charts'

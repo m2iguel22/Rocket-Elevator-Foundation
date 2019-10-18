@@ -1,4 +1,5 @@
 class Building < ApplicationRecord
+    include RailsAdminCharts
     has_many :batteries, dependent: :destroy
     has_many :building_details, dependent: :destroy
     belongs_to :customer
