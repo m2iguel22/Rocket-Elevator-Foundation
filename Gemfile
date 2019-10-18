@@ -96,5 +96,8 @@ gem 'cancan'
 # postgresql
 gem 'pg', '~> 0.18.4'
 
+# active storage
 gem 'activestorage-database-service', github: 'TitovDigital/activestorage-database-service'
 
+# whenever
+gem 'whenever', '~> 0.9.4',:require => false
