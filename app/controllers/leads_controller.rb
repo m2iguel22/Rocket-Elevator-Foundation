@@ -23,9 +23,13 @@ class LeadsController < ApplicationController
         
         # redirect_to comment  
 
-        @lead.save!
+        if verify_recaptcha(model: @lead)
+            @lead.save!
         
-        redirect_to quote_confirm_path
+            redirect_to quote_confirm_path
+        else
+            render 'new'
+        end
 
     end
 
