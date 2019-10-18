@@ -73,7 +73,7 @@ class PgSync
                 end
             end
             sql_string = "INSERT INTO dim_customers (creation_date,company_name,company_contact_name,company_contact_email,number_elevators,client_city)
-            VALUES ('#{customer.creation_at}','#{customer.company_name}','#{customer.full_name}'','#{customer.email}','#{nbElevator}','#{customer.address.city}');"
+            VALUES ('#{customer.created_at}','#{customer.company_name}','#{customer.full_name}'','#{customer.email}','#{nbElevator}','#{customer.address.city}');"
             self.pg_connection.exec(sql_string) 
         end
     end
