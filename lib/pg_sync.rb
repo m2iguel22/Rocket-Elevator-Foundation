@@ -34,7 +34,7 @@ class PgSync
 
         Quote.all.each do |quote|
             sql_string = "INSERT INTO fact_quotes(quote_id,creation_date,company_name,email,number_of_elevator) 
-            VALUES (#{quote.id},'#{quote.created_at}','#{quote.name}','#{quote.email}','#{quote.estimate_cage_number}');"    
+            VALUES (#{quote.id},'#{quote.created_at}','#{quote.company}','#{quote.email}','#{quote.estimate_cage_number}');"    
             self.pg_connection.exec(sql_string)    
         end
     end
