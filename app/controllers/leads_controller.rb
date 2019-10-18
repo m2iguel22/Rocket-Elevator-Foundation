@@ -13,14 +13,25 @@ class LeadsController < ApplicationController
         @lead.project_description = params['DepartmentInCharge']
         @lead.department_in_charge = params['ProjectDescription']
         @lead.message = params['Message']
+        # @lead.image = params['Attachment']
 
         
-        @lead.attachment.attach(params['Attachment']) 
+        # @lead.attachment.attach(params['Attachment']) 
 
-        @lead.save!
+        # comment = Comment.create! params.require(:comment).permit(:content)
+        @lead.image.attach(params['Attachment'])
         
-        redirect_to quote_confirm_path
+        # redirect_to comment  
+
+        if verify_recaptcha(model: @lead)
+            @lead.save!
+        
+            redirect_to quote_confirm_path
+        else
+            render 'new'
+        end
 
 
     end
+
 end

@@ -68,9 +68,13 @@ class QuotesController < ApplicationController
       @quote.email = email
       @quote.phone_number = phone
 
-      @quote.save!
+      if verify_recaptcha(model: @quote)
+        @quote.save!
     
-      redirect_to quote_confirm_path
+        redirect_to quote_confirm_path
+      else
+        render 'new'
+      end
     end
 
     if typeOfBuilding == 'commercial'
@@ -91,9 +95,13 @@ class QuotesController < ApplicationController
       @quote.email = email
       @quote.phone_number = phone
 
-      @quote.save!
+      if verify_recaptcha(model: @quote)
+        @quote.save!
     
-      redirect_to quote_confirm_path
+        redirect_to quote_confirm_path
+      else
+        render 'new'
+      end
     end
 
     if typeOfBuilding == 'corporate'
@@ -114,9 +122,13 @@ class QuotesController < ApplicationController
       @quote.email = email
       @quote.phone_number = phone
 
-      @quote.save!
+      if verify_recaptcha(model: @quote)
+        @quote.save!
     
-      redirect_to quote_confirm_path
+        redirect_to quote_confirm_path
+      else
+        render 'new'
+      end
     end
 
     if typeOfBuilding == 'hybride'
@@ -143,7 +155,7 @@ class QuotesController < ApplicationController
     
         redirect_to quote_confirm_path
       else
-        redirect_to root_path
+        render 'new'
       end
     end
 
