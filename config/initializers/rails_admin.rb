@@ -37,7 +37,9 @@ RailsAdmin.config do |config|
     show
     edit
     delete
-
+    all
+    charts
+   
     ## With an audit adapter, you can add:
     # history_index
     # history_show
