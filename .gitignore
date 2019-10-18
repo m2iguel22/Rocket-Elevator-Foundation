@@ -23,9 +23,9 @@ config/master.key
 # Only include if you have production secrets in this file, which is no longer a Rails default
 config/secrets.yml
 config/cable.yml
-# config/database.yml
-# config/storage.yml
-# config/database_dwh.yml
+config/database.yml
+config/storage.yml
+config/database_dwh.yml
 # dotenv
 # TODO Comment out this rule if environment variables can be committed
 .env
