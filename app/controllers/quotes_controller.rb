@@ -44,6 +44,7 @@ class QuotesController < ApplicationController
     company = params['Company']
     email = params['Email']
     phone = params['Phone']
+
     
 
     @quote = Quote.new(quote_params)

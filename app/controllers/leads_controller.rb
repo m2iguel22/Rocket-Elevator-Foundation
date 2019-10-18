@@ -21,5 +21,6 @@ class LeadsController < ApplicationController
         
         redirect_to quote_confirm_path
 
+
     end
 end
