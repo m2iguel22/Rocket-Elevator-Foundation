@@ -69,13 +69,13 @@ class PgSync
         Customer.all.each do |customer| 
 
             nbElevator = 1
-            customer.buildings.each do |building|
+            customer.buildings.all.each do |building|
                
-                building.batteries.each do |battery|
+                building.batteries.all.each do |battery|
                     
-                    battery.columns.each do |column|
+                    battery.columns.all.each do |column|
                       
-                        nbElevator = column.elevators.count
+                        nbElevator += column.elevators.count
                            
                     end
                 end
