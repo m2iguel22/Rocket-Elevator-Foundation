@@ -1,4 +1,4 @@
-SELECT EXTRACT(YEAR FROM creation_date) AS YEAR, EXTRACT(MONTH FROM creation_date) AS MONTH, COUNT(id)
-FROM factcontact
-GROUP BY  YEAR, MONTH
-ORDER BY  YEAR, MONTH;
+select count(id), to_char( creation_date, 'yyyy-mm')
+from fact_contacts
+group by to_char( creation_date, 'yyyy-mm')
+order by to_char( creation_date, 'yyyy-mm')
