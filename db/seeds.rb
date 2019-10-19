@@ -130,9 +130,9 @@ end
  end
 
     address_id_array = [*11..25]
-    customer_id_array = [*1..10,1,3,5,6,8]
+    customer_id_array = [*1..10]
 
- 15.times do
+ 10.times do
     Building.create!(
 
         admin_full_name: Faker::Name.first_name.delete("\'"),
@@ -141,7 +141,25 @@ end
         contact_technic_full_name: Faker::Name.name.delete("\'"),
         contact_technic_email: Faker::Internet.email,
         contact_technique_phone: Faker::PhoneNumber.phone_number,
-        customer_id: customer_id_array.delete(customer_id_array.sample),
+        customer_id: customer_id_array.delete(customer_id_array.sample), 
+        address_id: address_id_array.delete(address_id_array.sample),
+        created_at: Faker::Time.between(3.years.ago, 7.months.ago, :all),
+        updated_at: Faker::Time.between(6.months.ago, Time.now, :all)
+    )
+end
+
+    customer_id_array = [*1..10]
+
+5.times do
+    Building.create!(
+
+        admin_full_name: Faker::Name.first_name.delete("\'"),
+        admin_email: Faker::Internet.email,
+        admin_phone: Faker::PhoneNumber.phone_number,
+        contact_technic_full_name: Faker::Name.name.delete("\'"),
+        contact_technic_email: Faker::Internet.email,
+        contact_technique_phone: Faker::PhoneNumber.phone_number,
+        customer_id: customer_id_array.sample,
         address_id: address_id_array.delete(address_id_array.sample),
         created_at: Faker::Time.between(3.years.ago, 7.months.ago, :all),
         updated_at: Faker::Time.between(6.months.ago, Time.now, :all)
