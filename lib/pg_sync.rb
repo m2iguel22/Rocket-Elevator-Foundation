@@ -68,7 +68,7 @@ class PgSync
         pg_connection.exec ("TRUNCATE dim_customers RESTART IDENTITY")
         Customer.all.each do |customer| 
 
-            nbElevator = 1
+            nbElevator = 0
             customer.buildings.all.each do |building|
                
                 building.batteries.all.each do |battery|
