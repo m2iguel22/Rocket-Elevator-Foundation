@@ -1,3 +1,4 @@
-SELECT quote_id FROM factquotes
-GROUP BY company_name, nb_elevators
-ORDER BY quote_id;
+select count(id), to_char( creation_date, 'yyyy-mm')
+from fact_quotes
+group by to_char( creation_date, 'yyyy-mm')
+order by to_char( creation_date, 'yyyy-mm') 
