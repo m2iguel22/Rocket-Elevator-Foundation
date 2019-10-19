@@ -75,7 +75,7 @@ class PgSync
                     
                     battery.columns.each do |column|
                       
-                        nbElevator = column.elevators.length
+                        nbElevator = column.elevators.count
                            
                     end
                 end
