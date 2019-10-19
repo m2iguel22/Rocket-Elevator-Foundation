@@ -1,3 +1,4 @@
-SELECT company_name, nb_elevators FROM dimcustomers
-GROUP BY company_name, nb_elevators
-ORDER BY nb_elevators;
+select id, number_elevators
+from dim_customers as d
+group by id
+order by id 
