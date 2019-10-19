@@ -28,7 +28,7 @@ class LeadsController < ApplicationController
         
             redirect_to quote_confirm_path
         else
-            render 'new'
+            redirect_to root_path
         end
 
 
