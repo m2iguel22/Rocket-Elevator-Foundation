@@ -111,9 +111,6 @@ jQuery(document).ready(function() {
 			startWithSlide:0,
 			fullScreenOffsetContainer: ""
 		});
-
-		// Used by styleswitcher onle - delete this on production!
-		jQuery("#is_wide, #is_boxed").bind("click", function() { revapi.revredraw(); });
 	}
 
 
@@ -270,10 +267,6 @@ jQuery(document).ready(function() {
 			startWithSlide:0,
 			fullScreenOffsetContainer: ""
 		});
-
-		// Used by styleswitcher only - delete this on production!
-		jQuery("#is_wide, #is_boxed").bind("click", function() { revapi.revredraw(); });
-
 	}
 
 });	//ready
