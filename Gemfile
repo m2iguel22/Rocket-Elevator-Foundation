@@ -104,3 +104,4 @@ gem 'whenever', '~> 0.9.4',:require => false
 
 # rails admin charts
 gem 'rails_admin_charts'
+gem "slack-notifier"
