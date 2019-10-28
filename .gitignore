@@ -57,6 +57,8 @@ yarn-debug.log*
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
+
+echo "twilio.env" >> .gitignore
 # End of https://www.gitignore.io/api/rails
 
 # Ignore master key for decrypting credentials and more.
