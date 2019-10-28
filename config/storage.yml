@@ -9,6 +9,11 @@ local:
 db:
   service: Database
 
+
+# Twilio: 
+#   ACCOUNT SID: AC7a4c90cba6de1017f633f5a31d00f6a3
+#   auth_token: 9852d3336ed073e265698ea263e0aadc
+
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
 #   service: S3

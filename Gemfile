@@ -104,3 +104,5 @@ gem 'whenever', '~> 0.9.4',:require => false
 
 # rails admin charts
 gem 'rails_admin_charts'
+
+gem 'twilio-ruby', '~> 5.28.0'
