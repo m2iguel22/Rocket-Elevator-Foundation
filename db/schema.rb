@@ -207,3 +207,7 @@ ActiveRecord::Schema.define(version: 2019_10_16_201412) do
   add_foreign_key "customers", "users"
   add_foreign_key "elevators", "columns"
 end
+
+
+  
+
