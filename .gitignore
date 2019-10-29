@@ -60,3 +60,6 @@ yarn-debug.log*
 
 echo "twilio.env" >> .gitignore
 # End of https://www.gitignore.io/api/rails
+
+# Ignore application configuration
+/config/application.yml
