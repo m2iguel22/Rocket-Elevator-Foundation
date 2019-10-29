@@ -107,6 +107,7 @@ gem 'rails_admin_charts'
 
 gem "slack-notifier"
 
+gem "geocoder"
 
 gem 'twilio-ruby', '~> 5.28.0'
 
