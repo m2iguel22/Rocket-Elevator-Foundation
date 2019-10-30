@@ -19,6 +19,8 @@ gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 gem 'jquery-rails'
 
+gem 'faraday'
+
 gem 'jquery-cdn', '~> 3.3', '>= 3.3.1'
 
 gem 'bootstrap-tooltip-rails'
