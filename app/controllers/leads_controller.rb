@@ -1,7 +1,10 @@
+require './lib/API/zendesk.rb'
+
 class LeadsController < ApplicationController
 
     skip_before_action :verify_authenticity_token
-
+    
+    
     def create
         @lead = Lead.new
 
@@ -23,7 +26,23 @@ class LeadsController < ApplicationController
         
         # redirect_to comment  
 
-        if verify_recaptcha(model: @lead)
+
+        # if verify_recaptcha(model: @lead)
+        @lead.save!
+        # @lead.contact_us
+        contact_us(@lead)
+        redirect_to quote_confirm_path
+        # else
+            # redirect_to root_path
+        end
+        def contact_us(lead)
+                zendesk = Zendesk.new
+                zendesk.contact_us(lead.full_name, lead.company_name, lead.email, lead.phone, lead.department_in_charge, lead.project_name, lead.project_description, lead.message)
+            end    
+    end
+
+
+#         if verify_recaptcha(model: @lead)
 
             LeadmailMailer.welcome_email(@lead).deliver
  

@@ -68,13 +68,13 @@ class QuotesController < ApplicationController
       @quote.email = email
       @quote.phone_number = phone
 
-      if verify_recaptcha(model: @quote)
+      # if veri@quote.get_a_quotefy_recaptcha(model: @quote)
         @quote.save!
-    
+        @quote.quote
         redirect_to quote_confirm_path
-      else
-        render 'new'
-      end
+      # else
+      #   render 'new'
+      # end
     end
 
     if typeOfBuilding == 'commercial'
@@ -95,13 +95,13 @@ class QuotesController < ApplicationController
       @quote.email = email
       @quote.phone_number = phone
 
-      if verify_recaptcha(model: @quote)
+      # if verify_recaptcha(model: @quote)
         @quote.save!
-    
+        @@quote.quote
         redirect_to quote_confirm_path
-      else
-        render 'new'
-      end
+      # else
+      #   render 'new'
+      # end
     end
 
     if typeOfBuilding == 'corporate'
@@ -122,13 +122,13 @@ class QuotesController < ApplicationController
       @quote.email = email
       @quote.phone_number = phone
 
-      if verify_recaptcha(model: @quote)
+      # if verify_recaptcha(model: @quote)
         @quote.save!
-    
+        @quote.quote
         redirect_to quote_confirm_path
-      else
-        render 'new'
-      end
+      # else
+      #   render 'new'
+      # end
     end
 
     if typeOfBuilding == 'hybride'
@@ -150,14 +150,14 @@ class QuotesController < ApplicationController
       @quote.email = email
       @quote.phone_number = phone
 
-      if verify_recaptcha(model: @quote)
+      # quote(@get_a_quote)
         @quote.save!
-    
+        @quote.quote
         redirect_to quote_confirm_path
-      else
-        render 'new'
+      # else
+      #   render 'new'
       end
-    end
+    # end
 
     if typeOfBuilding == nil
       redirect_to quote_new_path
@@ -175,6 +175,7 @@ class QuotesController < ApplicationController
   # GET /quotes
   # GET /quotes.json
   def index
+    @quote.get_a_quote
     @quotes = Quote.all
   end
 
