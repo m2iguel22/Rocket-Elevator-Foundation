@@ -19,6 +19,8 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'jquery-rails'
 
+gem 'faraday'
+
 gem 'jquery-cdn', '~> 3.3', '>= 3.3.1'
 
 gem 'bootstrap-tooltip-rails'
