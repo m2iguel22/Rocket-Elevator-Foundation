@@ -24,14 +24,23 @@ class LeadsController < ApplicationController
         # redirect_to comment  
 
         if verify_recaptcha(model: @lead)
+
+            LeadmailMailer.welcome_email(@lead).deliver
+ 
+           
+ 
             @lead.save!
-        
+ 
             redirect_to quote_confirm_path
+ 
         else
+ 
+             
+ 
             redirect_to root_path
+ 
         end
-
-
+ 
     end
-
-end
+ 
+ end
