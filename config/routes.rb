@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   resources :employees
   resources :leads
 
+  get '/watson_speaker/watson'
+
   # Rails.application.routes.draw do
   #   devise_for :users, controllers: {
   #     sessions: 'users/sessions'

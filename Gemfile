@@ -110,3 +110,5 @@ gem 'twilio-ruby', '~> 5.28.0'
 gem "zendesk_api"
 gem "figaro"
 
+gem "ibm_watson"
+
