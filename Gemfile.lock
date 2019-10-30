@@ -361,9 +361,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   faker
-
   figaro (~> 1.1, >= 1.1.1)
-
   font-awesome-rails
   font-awesome-sass
   geocoder

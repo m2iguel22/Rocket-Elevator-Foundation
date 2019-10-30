@@ -39,7 +39,7 @@ class LeadsController < ApplicationController
                 zendesk = Zendesk.new
                 zendesk.contact_us(lead.full_name, lead.company_name, lead.email, lead.phone, lead.department_in_charge, lead.project_name, lead.project_description, lead.message)
             end    
-    end
+    
 
 
 #         if verify_recaptcha(model: @lead)
@@ -52,14 +52,14 @@ class LeadsController < ApplicationController
  
             redirect_to quote_confirm_path
  
-        else
+        # else
  
              
  
-            redirect_to root_path
+        #     redirect_to root_path
  
-        end
+        
  
     end
  
- end
+#  end
