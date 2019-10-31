@@ -6,28 +6,40 @@ class GoogleController < ApplicationController
         
         @marker_list = []
           
-        
-       
-        Building.all.each do |b|
+         Building.all.each do |b|
             building_address = b.address
             full_address = building_address.number_and_street + " " + building_address.city + " " + building_address.zip_code 
             resp = JSON.parse(Faraday.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{full_address}&key=AIzaSyC4Tqi-LZE8xyglM_EvOE-Z9rjwQyZp3-4").body)
-            lat = resp['results'][0]['geometry']['location']['lat']
-            lng = resp['results'][0]['geometry']['location']['lng']
+            pp resp
+            
+                latitude = resp['results'][0]['geometry']['location']['lat'] 
+                longitude = resp['results'][0]['geometry']['location']['lng'] 
 
-            @marker_list << 
-                lat = lat
-                lng = lng
-                address = b.address
-                floor = b.batteries.columns[number_of_floors_served]
-                name = b.admin_full_name
-                battery = b.batteries.count
-                bat_ids = b.battery_ids
-                column = Column.where[battery_id: bat_ids].count
-                col_ids = Column.where[battery_id: b.battery_ids].ids
-                elevator = Elevator.where[column_id: col_ids].count
-                contact = b.contact_technic_full_name
-     
+                 @wet = JSON.parse(Faraday.get("http://api.openweathermap.org/data/2.5/weather?lat=#{latitude}&lon=#{longitude}&appid=d54f4a109f4fc57404ac9bffe6b3720b").body)
+                 pp @wet
+                
+                @marker_list << {
+                    lat: latitude,
+                    lng: longitude,   
+                    address: b.address.number_and_street,
+                    city: b.address.city,
+                    country: b.address.country,
+                    zip_code: b.address.zip_code,
+                    name: b.admin_full_name,
+                    batteries: b.batteries.count,
+                    column: b.batteries.columns.count,
+                    contact: b.contact_technic_full_name,
+                    weather: @wet
+                   
+
+                    #floor = b.batteries.columns.number_of_floors_served
+                    
+                   
+                    
+                   
+                    
+                }
+            
         end
     end
 end

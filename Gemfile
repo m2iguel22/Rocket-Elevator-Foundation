@@ -19,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'jquery-rails'
 
-gem 'faraday'
+
 
 gem 'jquery-cdn', '~> 3.3', '>= 3.3.1'
 
@@ -106,3 +106,9 @@ gem 'whenever', '~> 0.9.4',:require => false
 
 # rails admin charts
 gem 'rails_admin_charts'
+
+# faraday
+gem 'faraday'
+
+# Openweather
+gem 'open-weather'
