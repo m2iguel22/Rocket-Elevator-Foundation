@@ -1,5 +1,6 @@
 require './lib/API/zendesk.rb'
 class LeadsController < ApplicationController
+
    skip_before_action :verify_authenticity_token
    def create
        @lead = Lead.new
@@ -29,8 +30,11 @@ class LeadsController < ApplicationController
        def contact_us(lead)
                zendesk = Zendesk.new
                zendesk.contact_us(lead.full_name, lead.company_name, lead.email, lead.phone, lead.department_in_charge, lead.project_name, lead.project_description, lead.message)
+
             LeadmailMailer.welcome_email(@lead).deliver
              @lead.save!
             redirect_to quote_confirm_path
+
         end
  end
+

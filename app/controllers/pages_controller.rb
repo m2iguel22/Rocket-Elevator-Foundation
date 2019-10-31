@@ -1,4 +1,9 @@
 class PagesController < ApplicationController
+    
+    def Geoloc
+               
+    end
+    
     def form
     end
     

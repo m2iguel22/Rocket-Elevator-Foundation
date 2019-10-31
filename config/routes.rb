@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/form', to: 'pages#form'
   get '/residential', to: 'pages#residential'
   get '/commercial', to: 'pages#commercial'
-
+  get '/google', to: 'google#index'
   get '/quote_confirm', to: 'pages#quote_confirm'
   get '/terms_and_conditions', to: 'pages#terms_and_conditions'
 

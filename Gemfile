@@ -19,6 +19,8 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'jquery-rails'
 
+gem 'faraday'
+
 gem 'jquery-cdn', '~> 3.3', '>= 3.3.1'
 
 gem 'bootstrap-tooltip-rails'
@@ -109,7 +111,9 @@ gem 'rails_admin_charts'
 gem 'twilio-ruby', '~> 5.28.0'
 
 gem "zendesk_api"
+
  gem "figaro"
+
 
 gem "ibm_watson"
 gem "slack-notifier"
