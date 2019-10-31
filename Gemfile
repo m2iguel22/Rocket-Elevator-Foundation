@@ -111,3 +111,11 @@ gem "geocoder"
 
 gem 'twilio-ruby', '~> 5.28.0'
 
+# dropbox
+gem 'dropbox_api'
+
+# figaro 
+gem "figaro"
+
+# sendgrid
+gem 'sendgrid-ruby'
