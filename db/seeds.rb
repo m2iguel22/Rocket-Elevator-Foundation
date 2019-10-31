@@ -126,7 +126,7 @@ end
         email_of_technical_service: Faker::Internet.email,
         address_id: address_id_array.delete(address_id_array.sample),
         user_id: user_id_array.delete(user_id_array.sample),
-        lead_id: lead_id_array.sample,
+        # lead_id: lead_id_array.sample,
         created_at: Faker::Time.between(3.years.ago, 7.months.ago, :all),
         updated_at: Faker::Time.between(6.months.ago, Time.now, :all)
     )

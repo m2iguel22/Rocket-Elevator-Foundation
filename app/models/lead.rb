@@ -1,8 +1,8 @@
 class Lead < ApplicationRecord
-    belongs_to :customer, optional: true
+    has_one :customer
     has_one_attached :attachment
 
-    DropboxApi::Client.new
+    # DropboxApi::Client.new
 
     # before_save :dropbox
 
