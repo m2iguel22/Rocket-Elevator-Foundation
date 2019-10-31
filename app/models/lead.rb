@@ -1,6 +1,6 @@
 class Lead < ApplicationRecord
     has_one :customer
-    has_one_attached :attachment
+    has_one_attached :file
 
     # DropboxApi::Client.new
 
