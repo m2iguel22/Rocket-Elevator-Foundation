@@ -6,7 +6,7 @@ require "ibm_watson/text_to_speech_v1"
 class SpeakController < ApplicationController
 
 def watson
-puts 'gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg'
+
 authenticator = IBMWatson::Authenticators::IamAuthenticator.new(
     apikey: ENV['Text_to_speech']
   )
@@ -18,7 +18,12 @@ authenticator = IBMWatson::Authenticators::IamAuthenticator.new(
   
   File::open("public/output.wav", "wb") do |audio_file|
     response = text_to_speech.synthesize(
-      text: "miguel is a big shit head",
+      text: "Greeting#{current_user.employee.first_name}.
+      #           There are currently #{Elevator.count} elevators deployed in the #{Building.count} buildings of your #{Customer.count} customers. 
+      #           Currently, #{Elevator.where(status: 'Inactive').count} elevators are not in Running Status and are being serviced. 
+      #           You currently have #{Quote.count} quotes awaiting processing. 
+      #           You currently have #{Lead.count} leads in your contact requests. 
+      #           #{Battery.count} Batteries are deployed across #{Building.joins(:address).select('addresses.city').distinct.count} cities",
       accept: "audio/wav",
       voice: "en-US_AllisonVoice"
     ).result
@@ -26,7 +31,7 @@ authenticator = IBMWatson::Authenticators::IamAuthenticator.new(
 
 
 
-    puts 'fdhgdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd'
+    
     end
   end
 end
