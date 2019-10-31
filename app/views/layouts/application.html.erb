@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => 'reload' %>
     <title>Rocket Elevators</title>
 	<!-- mobile settings -->
 	
@@ -32,7 +33,7 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/_smarty/RocketElevatorImage/faviconRocket.png">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-	  <%= javascript_include_tag "application" %>
+	 
 
   </head>
 

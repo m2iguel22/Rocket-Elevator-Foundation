@@ -15,7 +15,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
-
+# gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 gem 'jquery-rails'
 
@@ -105,10 +105,16 @@ gem 'whenever', '~> 0.9.4',:require => false
 # rails admin charts
 gem 'rails_admin_charts'
 
+
 gem 'twilio-ruby', '~> 5.28.0'
 
 gem "zendesk_api"
-gem "figaro"
+ gem "figaro"
 
 gem "ibm_watson"
+gem "slack-notifier"
+
+gem "geocoder"
+
+
 
