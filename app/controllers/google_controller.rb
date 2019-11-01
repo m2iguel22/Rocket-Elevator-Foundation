@@ -10,13 +10,16 @@ class GoogleController < ApplicationController
             building_address = b.address
             full_address = building_address.number_and_street + " " + building_address.city + " " + building_address.zip_code 
 
-            resp = JSON.parse(Faraday.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{full_address}&key=(ENV['GMAP2'])").body)
+            resp = JSON.parse(Faraday.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{full_address}&key=#{ENV['GMAP2']}").body)
+
             pp resp
             
                 latitude = resp['results'][0]['geometry']['location']['lat'] 
                 longitude = resp['results'][0]['geometry']['location']['lng'] 
 
-                 @wet = JSON.parse(Faraday.get("http://api.openweathermap.org/data/2.5/weather?lat=#{latitude}&lon=#{longitude}&appid=(ENV['GMAP3'])&units=metric").body)
+
+                 @wet = JSON.parse(Faraday.get("http://api.openweathermap.org/data/2.5/weather?lat=#{latitude}&lon=#{longitude}&appid=#{ENV['GMAP3']}&units=metric").body)
+
                  pp @wet
                  temperature = @wet['main']['temp'] 
                  min = @wet['main']['temp_min'] 
@@ -35,9 +38,7 @@ class GoogleController < ApplicationController
                     zip_code: b.address.zip_code,
                     name: b.admin_full_name,
                     batteries: b.batteries.count,
-                    
                     column: Column.where(battery_id: bat_ids).count,
-                    
                     elevator: Elevator.where(column_id: col_ids).count,
                     contact: b.contact_technic_full_name,
                     email: b.contact_technic_email,
@@ -48,20 +49,9 @@ class GoogleController < ApplicationController
                     pressure: pressure,
                     humidity: humidity
 
-
-            resp = JSON.parse(Faraday.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{full_address}&key=").body)
-            lat = resp['results'][0]['geometry']['location']['lat']
-            lng = resp['results'][0]['geometry']['location']['lng']
-
-
                     #floor = b.batteries.columns.number_of_floors_served
-                    
-                   
-                    
-                   
-                    
+     
                 }
-            
         end
     end
 end

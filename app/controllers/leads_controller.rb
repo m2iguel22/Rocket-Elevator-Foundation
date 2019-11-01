@@ -27,23 +27,24 @@ class LeadsController < ApplicationController
             @lead.attachment_name = params_attach.original_filename
         end            
               
-         @lead.save!
+        @lead.save!
+        contact_us(@lead)
         redirect_to quote_confirm_path
         
-end
-end
+    end
+
 
 
  
-       def contact_us(lead)
-               zendesk = Zendesk.new
-               zendesk.contact_us(lead.full_name, lead.company_name, lead.email, lead.phone, lead.department_in_charge, lead.project_name, lead.project_description, lead.message)
+    def contact_us(lead)
+            zendesk = Zendesk.new
+            zendesk.contact_us(lead.full_name, lead.company_name, lead.email, lead.phone, lead.department_in_charge, lead.project_name, lead.project_description, lead.message)
 
-            LeadmailMailer.welcome_email(@lead).deliver
-             @lead.save!
-            redirect_to quote_confirm_path
+        LeadmailMailer.welcome_email(@lead).deliver
+            @lead.save!
+        
 
-        end
- end
+    end
 
+end
 
