@@ -83,8 +83,6 @@ end
     csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
     csv.each do |row|
            t = Address.new
-           # t.id = row['id']
-           
            t. type_of_address = row['type_of_address']
            t.status = row['status']
            t.entity = row['entity']
@@ -98,42 +96,8 @@ end
            t.updated_at = row['updated_at']
            t.save!
     end
-# 10.times do
-#     Address.create!(
-    
-#         type_of_address: Faker::Name.name.delete("\'"),
-#         status: status_array.sample,
-#         entity: 'Billing Address',
-#         number_and_street: Faker::Address.street_address.delete("\'"),
-#         appartment_or_suit: Faker::Address.secondary_address.delete("\'"),
-#         city: Faker::Address.city.delete("\'"),
-#         zip_code: Faker::Address.zip_code,
-#         country: Faker::Address.country_name_to_code(name:'canada'),
-#         notes: Faker::Types.rb_string,
-#         created_at: Faker::Time.between(3.years.ago, 9.months.ago, :all),
-#         updated_at: Faker::Time.between(8.months.ago, Time.now, :all)
-#         )
-#         end
-
-# 15.times do
-#     Address.create!(
-
-#         type_of_address: Faker::Name.name.delete("\'"),
-#         status: status_array.sample,
-#         entity: 'Operational Building',
-#         number_and_street: Faker::Address.street_address.delete("\'"),
-#         appartment_or_suit: Faker::Address.secondary_address.delete("\'"),
-#         city: Faker::Address.city.delete("\'"),
-#         zip_code: Faker::Address.zip_code,
-#         country: Faker::Address.country_name_to_code(name:'canada'),
-#         notes: Faker::Types.rb_string,
-#         created_at: Faker::Time.between(3.years.ago, 9.months.ago, :all),
-#         updated_at: Faker::Time.between(8.months.ago, Time.now, :all)
-#     )
-#     end
 
     address_id_array = [*1..10]
-
     user_id_array = [*11..20]
     lead_id_array = [*1..40]
 
