@@ -19,7 +19,7 @@ User.create!(email: "nadya.fortier@codeboxx.biz", password: "123456", password_c
 User.create!(email: "martin.chantal@codeboxx.biz", password: "123456", password_confirmation: "123456", admin: true, created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
 
 
-11.times do
+100.times do
     User.create!(
         email: Faker::Internet.email,
         password: '123456',
@@ -29,16 +29,18 @@ User.create!(email: "martin.chantal@codeboxx.biz", password: "123456", password_
 end
 
 
-Employee.create!(first_name: 'Nicolas', last_name: 'Genest', title: 'Comm.Rep', email: 'nicolas.genest@codeboxx.biz', password: '123456', created_at: Faker::Time.between(6.years.ago, 5.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
-Employee.create!(first_name: 'David', last_name: 'Boutin', title: 'Engineer', email: 'david.boutin@codeboxx.biz', password: '123456', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
-Employee.create!(first_name: 'Remi', last_name: 'Gagnon', title: 'Engineer', email: 'remi.gagnon@codeboxx.biz', password: '123456', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
-Employee.create!(first_name: 'Mathieu', last_name: 'LeFrançois', title: 'Engineer', email: 'mathieu.lefrancois@codeboxx.biz', password: '123456', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
-Employee.create!(first_name: 'Mathieu', last_name: 'Lortie', title: 'Engineer', email: 'mathieu.lortie@codeboxx.biz', password: '123456', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
-Employee.create!(first_name: 'Mathieu', last_name: 'Houde', title: 'Engineer', email: 'mathieu.houde@codeboxx.biz', password: '123456', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
-Employee.create!(first_name: 'Serge', last_name: 'Savoie', title: 'Engineer', email: 'serge.savoie@codeboxx.biz', password: '123456', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
-Employee.create!(first_name: 'Nadya', last_name: 'Fortier', title: 'Director', email: 'nadya.fortier@codeboxx.biz', password: '123456', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
-Employee.create!(first_name: 'Martin', last_name: 'Chantal', title: 'Engineer', email: 'martin.chantal@codeboxx.biz', password: '123456', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
+Employee.create!(first_name: 'Nicolas', last_name: 'Genest', title: 'Comm.Rep', email: 'nicolas.genest@codeboxx.biz', password: '123456', user_id: '1', created_at: Faker::Time.between(6.years.ago, 5.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
+Employee.create!(first_name: 'David', last_name: 'Boutin', title: 'Engineer', email: 'david.boutin@codeboxx.biz', password: '123456', user_id: '2', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
+Employee.create!(first_name: 'Remi', last_name: 'Gagnon', title: 'Engineer', email: 'remi.gagnon@codeboxx.biz', password: '123456', user_id: '3', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
+Employee.create!(first_name: 'Mathieu', last_name: 'LeFrançois', title: 'Engineer', email: 'mathieu.lefrancois@codeboxx.biz', password: '123456', user_id: '4', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
+Employee.create!(first_name: 'Mathieu', last_name: 'Lortie', title: 'Engineer', email: 'mathieu.lortie@codeboxx.biz', password: '123456', user_id: '5', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
+Employee.create!(first_name: 'Mathieu', last_name: 'Houde', title: 'Engineer', email: 'mathieu.houde@codeboxx.biz', password: '123456', user_id: '6', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
+Employee.create!(first_name: 'Serge', last_name: 'Savoie', title: 'Engineer', email: 'serge.savoie@codeboxx.biz', password: '123456', user_id: '7', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
+Employee.create!(first_name: 'Nadya', last_name: 'Fortier', title: 'Director', email: 'nadya.fortier@codeboxx.biz', password: '123456', user_id: '8', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
+Employee.create!(first_name: 'Martin', last_name: 'Chantal', title: 'Engineer', email: 'martin.chantal@codeboxx.biz', password: '123456', user_id: '9', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
  
+
+user_id_array = [*21..99]
 
 43.times do 
     Employee.create!(
@@ -48,6 +50,7 @@ Employee.create!(first_name: 'Martin', last_name: 'Chantal', title: 'Engineer', 
         title: Faker::Construction.role,     
         email: Faker::Internet.email,
         password: '123456',
+        user_id: user_id_array.delete(user_id_array.sample),
         created_at: Faker::Time.between(4.years.ago, 7.months.ago, :all),
         updated_at: Faker::Time.between(6.months.ago, Time.now, :all)
     )
@@ -65,6 +68,7 @@ end
         project_description: Faker::Company.type,
         department_in_charge: Faker::Commerce.department,
         message: Faker::Construction.subcontract_category,
+        
         created_at: Faker::Time.between(5.months.ago, Time.now, :all),
         updated_at: Faker::Time.between(2.weeks.ago, Time.now, :all)
     )
@@ -129,7 +133,10 @@ end
 #     end
 
     address_id_array = [*1..10]
+
     user_id_array = [*11..20]
+    lead_id_array = [*1..40]
+
 
 10.times do
     Customer.create!(
@@ -143,7 +150,10 @@ end
         phone_of_technical_service: Faker::PhoneNumber.phone_number,
         email_of_technical_service: Faker::Internet.email,
         address_id: address_id_array.delete(address_id_array.sample),
+
         user_id: user_id_array.delete(user_id_array.sample),
+        
+        
         created_at: Faker::Time.between(3.years.ago, 7.months.ago, :all),
         updated_at: Faker::Time.between(6.months.ago, Time.now, :all)
     )

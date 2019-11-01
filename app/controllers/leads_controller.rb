@@ -1,8 +1,11 @@
+require './lib/API/zendesk.rb'
 class LeadsController < ApplicationController
 
+    require "dropbox_api"
     skip_before_action :verify_authenticity_token
 
     def create
+       
         @lead = Lead.new
 
         @lead.full_name = params['Name']
@@ -13,25 +16,34 @@ class LeadsController < ApplicationController
         @lead.project_description = params['DepartmentInCharge']
         @lead.department_in_charge = params['ProjectDescription']
         @lead.message = params['Message']
-        # @lead.image = params['Attachment']
-
         
-        # @lead.attachment.attach(params['Attachment']) 
+        params_attach = params['Attachment']
 
-        # comment = Comment.create! params.require(:comment).permit(:content)
-        @lead.image.attach(params['Attachment'])
+        puts "params_attach #{params_attach}"
         
-        # redirect_to comment  
-
-        if verify_recaptcha(model: @lead)
-            @lead.save!
         
-            redirect_to quote_confirm_path
-        else
-            redirect_to root_path
-        end
-
-
-    end
-
+        if params_attach
+            @lead.file = params_attach
+            @lead.attachment_name = params_attach.original_filename
+        end            
+              
+         @lead.save!
+        redirect_to quote_confirm_path
+        
 end
+end
+
+
+ 
+       def contact_us(lead)
+               zendesk = Zendesk.new
+               zendesk.contact_us(lead.full_name, lead.company_name, lead.email, lead.phone, lead.department_in_charge, lead.project_name, lead.project_description, lead.message)
+
+            LeadmailMailer.welcome_email(@lead).deliver
+             @lead.save!
+            redirect_to quote_confirm_path
+
+        end
+ end
+
+

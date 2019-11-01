@@ -57,4 +57,19 @@ yarn-debug.log*
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
+
+
+
 # End of https://www.gitignore.io/api/rails
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+
+# Ignore application configuration
+/config/application.yml
+slack.env
+twilio.env
+
+# Ignore application configuration
+/config/application.yml
+

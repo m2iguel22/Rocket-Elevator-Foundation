@@ -9,6 +9,7 @@ class GoogleController < ApplicationController
          Building.all.each do |b|
             building_address = b.address
             full_address = building_address.number_and_street + " " + building_address.city + " " + building_address.zip_code 
+
             resp = JSON.parse(Faraday.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{full_address}&key=AIzaSyC4Tqi-LZE8xyglM_EvOE-Z9rjwQyZp3-4").body)
             pp resp
             
@@ -45,7 +46,11 @@ class GoogleController < ApplicationController
                     pressure: pressure,
                     humidity: humidity
 
-                   
+
+            resp = JSON.parse(Faraday.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{full_address}&key=").body)
+            lat = resp['results'][0]['geometry']['location']['lat']
+            lng = resp['results'][0]['geometry']['location']['lng']
+
 
                     #floor = b.batteries.columns.number_of_floors_served
                     
