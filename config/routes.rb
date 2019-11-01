@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   
   get 'speak/watson'
+  get 'speak/star_wars'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users do

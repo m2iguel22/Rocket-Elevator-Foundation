@@ -16,12 +16,20 @@
     </thead>
     <tbody>
 
+      <p> Your personnal information <p>
       <audio controls>
         <source src='speak/watson
         ' type="audio/wav">
         <source src='output.wav' type='audio/wav'>
       </audio>
 
+      <p> Your personnal Star Wars facts <p>
+      <audio controls>
+        <source src='speak/star_wars
+        ' type="audio/wav">
+        <source src='output_starWars.wav' type='audio/wav'>
+      </audio>
+      
 
       <% @abstract_models.each do |abstract_model| %>
         <% if authorized? :index, abstract_model %>
