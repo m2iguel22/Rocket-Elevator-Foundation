@@ -68,6 +68,7 @@ end
         project_description: Faker::Company.type,
         department_in_charge: Faker::Commerce.department,
         message: Faker::Construction.subcontract_category,
+        
         created_at: Faker::Time.between(5.months.ago, Time.now, :all),
         updated_at: Faker::Time.between(2.weeks.ago, Time.now, :all)
     )
@@ -132,7 +133,10 @@ end
 #     end
 
     address_id_array = [*1..10]
-    user_id_array2 = [*11..20]
+
+    user_id_array = [*11..20]
+    lead_id_array = [*1..40]
+
 
 10.times do
     Customer.create!(
@@ -146,7 +150,10 @@ end
         phone_of_technical_service: Faker::PhoneNumber.phone_number,
         email_of_technical_service: Faker::Internet.email,
         address_id: address_id_array.delete(address_id_array.sample),
-        user_id: user_id_array2.delete(user_id_array2.sample),
+
+        user_id: user_id_array.delete(user_id_array.sample),
+        
+        
         created_at: Faker::Time.between(3.years.ago, 7.months.ago, :all),
         updated_at: Faker::Time.between(6.months.ago, Time.now, :all)
     )

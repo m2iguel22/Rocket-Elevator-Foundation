@@ -128,3 +128,11 @@ gem "geocoder"
 
 
 
+# dropbox
+gem 'dropbox_api'
+
+# figaro 
+gem "figaro"
+
+# sendgrid
+gem 'sendgrid-ruby'
