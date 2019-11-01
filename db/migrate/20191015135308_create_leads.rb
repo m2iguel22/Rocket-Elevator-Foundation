@@ -10,7 +10,6 @@ class CreateLeads < ActiveRecord::Migration[5.2]
       t.text :project_description
       t.string :department_in_charge
       t.text :message
-      t.longblob :attachment
       t.string :attachment_name
       t.timestamps
     end

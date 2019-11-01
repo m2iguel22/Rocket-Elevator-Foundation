@@ -7,17 +7,23 @@ class Customer < ApplicationRecord
     after_update :dropbox
     
     
-    self.all.each do |lead|
+    # self.all.each do |lead|
 
 
-     def dropbox
-        self.lead do |lead|
-          if lead.attachment != nil
-            client = DropboxApi::Client.new(ENV['DROPBOX_OAUTH_BEARER'])
-            client.create_folder("/#{lead.full_name}")
-            client.upload("/#{lead.full_name}/#{File.basename(lead.original_filename)}", lead.attachment)
-                end
+    def dropbox
+        puts "******* DROPBOX *******"
+        if self.lead   
+            puts "******* #{self.lead.file} *******"        
+            if self.lead.file != nil
+                puts "WILL CALL DROPBOX"
+                client = DropboxApi::Client.new(ENV['DROPBOX_OAUTH_BEARER'])
+                #client.create_folder("/#{lead.full_name}")
+                client.upload("/#{self.lead.full_name}/#{File.basename(self.lead.attachment_name)}", self.lead.file.blob.download)
+                lead.attachment_name = nil
+                lead.file.purge
+                lead.save!
             end
         end
-    end  
+    end
+
 end         

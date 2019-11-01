@@ -3,6 +3,7 @@ class LeadsController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     def create
+        puts "PATATE"
         @lead = Lead.new
 
         @lead.full_name = params['Name']
@@ -17,11 +18,12 @@ class LeadsController < ApplicationController
         # @lead.attachment_name = params['Attachment']
         params_attach = params['Attachment']
 
+        puts "params_attach #{params_attach}"
         
         
         if params_attach
-            @lead.attachment = params_attach.read
-            @lead.original_filename = params_attach.original_filename
+            @lead.file = params_attach
+            @lead.attachment_name = params_attach.original_filename
         end
        
 
@@ -33,11 +35,10 @@ class LeadsController < ApplicationController
                 
                 
               
-        if @lead.save!
+         @lead.save!
         redirect_to quote_confirm_path
-        else
-            redirect_to root
-        end
+              
+        
         # if params_attach
         #     asdf = params_attach.read
         #     asdf_name = params_attach.original_filename
@@ -45,7 +46,7 @@ class LeadsController < ApplicationController
        
 
         # client = DropboxApi::Client.new(ENV['DROPBOX_OAUTH_BEARER'])
-        #     client.create_folder("/#{@lead.full_name}")
+        #     # client.create_folder("/#{@lead.full_name}")
         #     client.upload("/#{@lead.full_name}/#{File.basename(asdf_name)}", asdf)
         #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
             
