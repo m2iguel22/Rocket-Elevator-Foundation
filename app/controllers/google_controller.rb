@@ -49,8 +49,7 @@ class GoogleController < ApplicationController
                     pressure: pressure,
                     humidity: humidity
 
-                    #floor = b.batteries.columns.number_of_floors_served
-     
+                        
                 }
         end
     end
