@@ -8,14 +8,14 @@ server "34.203.94.126", user: "ubuntu", roles: %w{app db web}
 # server "db.example.com", user: "deploy", roles: %w{db}
 app = ENV['APP']
 if app.nil? or app.empty?
-  app = "JonathanFD" 
+  app = "GabrielBibeau" 
 end
 set :application, app
 set :rails_env, "development"
 set :bundle_without, "production"
 set :deploy_to, "/home/ubuntu/apps/#{app}"
 set :linked_dirs, %w{tmp/pids tmp/sockets log}
-set :linked_files, %w{config/database.yml config/database_dwh.yml}
+set :linked_files, %w{config/database.yml config/database_dwh.yml config/application.yml}
 
 # role-based syntax
 # ==================

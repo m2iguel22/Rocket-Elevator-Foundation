@@ -5,4 +5,5 @@ class Employee< ApplicationRecord
   devise :database_authenticatable, :registerable,
          :rememberable, :validatable  
   has_many :batteries, dependent: :destroy
+  belongs_to :user, dependent: :destroy
 end
