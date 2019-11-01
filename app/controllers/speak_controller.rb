@@ -50,7 +50,7 @@ def watson
     response = JSON.parse(resp.body)
     puts response
     
-    phrase = "Welcome to Starwars Facts! Did you know that  #{response["name"]} is #{response["height"]} centimeters tall, he weights #{response["mass"]} kilograms, his hair color is #{response["hair_color"]}, his skin color is #{response["skin_color"]}, his eye color is #{response["eye_color"]}, his birthday is #{response["birth_year"]}, and his gender is #{response["gender"]}, if you want an other fact just hit play again"
+    phrase = "Welcome to Starwars Facts! Did you know that  #{response["name"]} is #{response["height"]} centimeters tall, he weights #{response["mass"]} kilograms, his hair color is #{response["hair_color"]}, his skin color is #{response["skin_color"]}, his eye color is #{response["eye_color"]}, his birthday is #{response["birth_year"]}, and his gender is #{response["gender"]}, if you want an other fact just refresh the page!"
     puts phrase
 
     puts "==============================="
