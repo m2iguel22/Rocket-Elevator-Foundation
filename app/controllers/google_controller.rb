@@ -10,13 +10,13 @@ class GoogleController < ApplicationController
             building_address = b.address
             full_address = building_address.number_and_street + " " + building_address.city + " " + building_address.zip_code 
 
-            resp = JSON.parse(Faraday.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{full_address}&key=AIzaSyC4Tqi-LZE8xyglM_EvOE-Z9rjwQyZp3-4").body)
+            resp = JSON.parse(Faraday.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{full_address}&key=(ENV['GMAP2'])").body)
             pp resp
             
                 latitude = resp['results'][0]['geometry']['location']['lat'] 
                 longitude = resp['results'][0]['geometry']['location']['lng'] 
 
-                 @wet = JSON.parse(Faraday.get("http://api.openweathermap.org/data/2.5/weather?lat=#{latitude}&lon=#{longitude}&appid=d54f4a109f4fc57404ac9bffe6b3720b&units=metric").body)
+                 @wet = JSON.parse(Faraday.get("http://api.openweathermap.org/data/2.5/weather?lat=#{latitude}&lon=#{longitude}&appid=(ENV['GMAP3'])&units=metric").body)
                  pp @wet
                  temperature = @wet['main']['temp'] 
                  min = @wet['main']['temp_min'] 
