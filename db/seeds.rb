@@ -202,7 +202,7 @@ end
     building_id_array = [*1..15]
     employee_id_array = [*11..52]
 
-15.times do
+50.times do
     Battery.create!(
 
         type_of_battery: type_of_building_array.sample,
@@ -217,7 +217,7 @@ end
     )
 end
 
-    battery_id_array =[*1..15]
+    battery_id_array =[*1..50]
 
 15.times do
     Column.create!(
@@ -231,7 +231,7 @@ end
     )
 end
 
-    battery_id_array =[*1..15]  
+    battery_id_array =[*1..50]  
 
 60.times do
     Column.create!(

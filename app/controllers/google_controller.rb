@@ -34,9 +34,7 @@ class GoogleController < ApplicationController
                     zip_code: b.address.zip_code,
                     name: b.admin_full_name,
                     batteries: b.batteries.count,
-                    
                     column: Column.where(battery_id: bat_ids).count,
-                    
                     elevator: Elevator.where(column_id: col_ids).count,
                     contact: b.contact_technic_full_name,
                     email: b.contact_technic_email,
