@@ -92,7 +92,6 @@ end
            t.notes = row['notes']
            t.created_at = row['created_at']
            t.updated_at = row['updated_at']
-           t.weather = row['weather']
            t.save!
     end
 # 10.times do
