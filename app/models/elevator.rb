@@ -15,7 +15,6 @@ class Elevator < ApplicationRecord
 
 
     after_update :status_change 
-    
     class TwilioTextMessenger
         attr_reader :message
         def initialize(message)

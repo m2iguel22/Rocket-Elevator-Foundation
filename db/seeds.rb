@@ -19,7 +19,7 @@ User.create!(email: "nadya.fortier@codeboxx.biz", password: "123456", password_c
 User.create!(email: "martin.chantal@codeboxx.biz", password: "123456", password_confirmation: "123456", admin: true, created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
 
 
-11.times do
+100.times do
     User.create!(
         email: Faker::Internet.email,
         password: '123456',
@@ -29,16 +29,18 @@ User.create!(email: "martin.chantal@codeboxx.biz", password: "123456", password_
 end
 
 
-Employee.create!(first_name: 'Nicolas', last_name: 'Genest', title: 'Comm.Rep', email: 'nicolas.genest@codeboxx.biz', password: '123456', created_at: Faker::Time.between(6.years.ago, 5.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
-Employee.create!(first_name: 'David', last_name: 'Boutin', title: 'Engineer', email: 'david.boutin@codeboxx.biz', password: '123456', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
-Employee.create!(first_name: 'Remi', last_name: 'Gagnon', title: 'Engineer', email: 'remi.gagnon@codeboxx.biz', password: '123456', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
-Employee.create!(first_name: 'Mathieu', last_name: 'LeFrançois', title: 'Engineer', email: 'mathieu.lefrancois@codeboxx.biz', password: '123456', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
-Employee.create!(first_name: 'Mathieu', last_name: 'Lortie', title: 'Engineer', email: 'mathieu.lortie@codeboxx.biz', password: '123456', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
-Employee.create!(first_name: 'Mathieu', last_name: 'Houde', title: 'Engineer', email: 'mathieu.houde@codeboxx.biz', password: '123456', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
-Employee.create!(first_name: 'Serge', last_name: 'Savoie', title: 'Engineer', email: 'serge.savoie@codeboxx.biz', password: '123456', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
-Employee.create!(first_name: 'Nadya', last_name: 'Fortier', title: 'Director', email: 'nadya.fortier@codeboxx.biz', password: '123456', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
-Employee.create!(first_name: 'Martin', last_name: 'Chantal', title: 'Engineer', email: 'martin.chantal@codeboxx.biz', password: '123456', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
+Employee.create!(first_name: 'Nicolas', last_name: 'Genest', title: 'Comm.Rep', email: 'nicolas.genest@codeboxx.biz', password: '123456', user_id: '1', created_at: Faker::Time.between(6.years.ago, 5.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
+Employee.create!(first_name: 'David', last_name: 'Boutin', title: 'Engineer', email: 'david.boutin@codeboxx.biz', password: '123456', user_id: '2', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
+Employee.create!(first_name: 'Remi', last_name: 'Gagnon', title: 'Engineer', email: 'remi.gagnon@codeboxx.biz', password: '123456', user_id: '3', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
+Employee.create!(first_name: 'Mathieu', last_name: 'LeFrançois', title: 'Engineer', email: 'mathieu.lefrancois@codeboxx.biz', password: '123456', user_id: '4', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
+Employee.create!(first_name: 'Mathieu', last_name: 'Lortie', title: 'Engineer', email: 'mathieu.lortie@codeboxx.biz', password: '123456', user_id: '5', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
+Employee.create!(first_name: 'Mathieu', last_name: 'Houde', title: 'Engineer', email: 'mathieu.houde@codeboxx.biz', password: '123456', user_id: '6', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
+Employee.create!(first_name: 'Serge', last_name: 'Savoie', title: 'Engineer', email: 'serge.savoie@codeboxx.biz', password: '123456', user_id: '7', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
+Employee.create!(first_name: 'Nadya', last_name: 'Fortier', title: 'Director', email: 'nadya.fortier@codeboxx.biz', password: '123456', user_id: '8', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
+Employee.create!(first_name: 'Martin', last_name: 'Chantal', title: 'Engineer', email: 'martin.chantal@codeboxx.biz', password: '123456', user_id: '9', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
  
+
+user_id_array = [*21..99]
 
 43.times do 
     Employee.create!(
@@ -48,6 +50,7 @@ Employee.create!(first_name: 'Martin', last_name: 'Chantal', title: 'Engineer', 
         title: Faker::Construction.role,     
         email: Faker::Internet.email,
         password: '123456',
+        user_id: user_id_array.delete(user_id_array.sample),
         created_at: Faker::Time.between(4.years.ago, 7.months.ago, :all),
         updated_at: Faker::Time.between(6.months.ago, Time.now, :all)
     )
@@ -74,44 +77,66 @@ end
     status_array = ["Active", "Active", "Active", "Inactive"]
     type_of_building_array = ["Residential", "Commercial", "Corporative", "Hybrid"]
     type_of_service_array = ["Standard", "Premium", "Excelium"]
-
-10.times do
-    Address.create!(
     
-        type_of_address: Faker::Name.name.delete("\'"),
-        status: status_array.sample,
-        entity: 'Billing Address',
-        number_and_street: Faker::Address.street_address.delete("\'"),
-        appartment_or_suit: Faker::Address.secondary_address.delete("\'"),
-        city: Faker::Address.city.delete("\'"),
-        zip_code: Faker::Address.zip_code,
-        country: Faker::Address.country_name_to_code(name:'canada'),
-        notes: Faker::Types.rb_string,
-        created_at: Faker::Time.between(3.years.ago, 9.months.ago, :all),
-        updated_at: Faker::Time.between(8.months.ago, Time.now, :all)
-        )
-        end
-
-15.times do
-    Address.create!(
-
-        type_of_address: Faker::Name.name.delete("\'"),
-        status: status_array.sample,
-        entity: 'Operational Building',
-        number_and_street: Faker::Address.street_address.delete("\'"),
-        appartment_or_suit: Faker::Address.secondary_address.delete("\'"),
-        city: Faker::Address.city.delete("\'"),
-        zip_code: Faker::Address.zip_code,
-        country: Faker::Address.country_name_to_code(name:'canada'),
-        notes: Faker::Types.rb_string,
-        created_at: Faker::Time.between(3.years.ago, 9.months.ago, :all),
-        updated_at: Faker::Time.between(8.months.ago, Time.now, :all)
-    )
+    
+    csv_text = File.read(Rails.root.join('lib', 'seed', 'address1.csv'))
+    csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+    csv.each do |row|
+           t = Address.new
+           # t.id = row['id']
+           
+           t. type_of_address = row['type_of_address']
+           t.status = row['status']
+           t.entity = row['entity']
+           t.number_and_street = row['number_and_street']
+           t.appartment_or_suit = row['appartment_or_suit']
+           t.city = row['city']
+           t.zip_code = row['zip_code']
+           t.country = row['country']
+           t.notes = row['notes']
+           t.created_at = row['created_at']
+           t.updated_at = row['updated_at']
+           t.save!
     end
+# 10.times do
+#     Address.create!(
+    
+#         type_of_address: Faker::Name.name.delete("\'"),
+#         status: status_array.sample,
+#         entity: 'Billing Address',
+#         number_and_street: Faker::Address.street_address.delete("\'"),
+#         appartment_or_suit: Faker::Address.secondary_address.delete("\'"),
+#         city: Faker::Address.city.delete("\'"),
+#         zip_code: Faker::Address.zip_code,
+#         country: Faker::Address.country_name_to_code(name:'canada'),
+#         notes: Faker::Types.rb_string,
+#         created_at: Faker::Time.between(3.years.ago, 9.months.ago, :all),
+#         updated_at: Faker::Time.between(8.months.ago, Time.now, :all)
+#         )
+#         end
+
+# 15.times do
+#     Address.create!(
+
+#         type_of_address: Faker::Name.name.delete("\'"),
+#         status: status_array.sample,
+#         entity: 'Operational Building',
+#         number_and_street: Faker::Address.street_address.delete("\'"),
+#         appartment_or_suit: Faker::Address.secondary_address.delete("\'"),
+#         city: Faker::Address.city.delete("\'"),
+#         zip_code: Faker::Address.zip_code,
+#         country: Faker::Address.country_name_to_code(name:'canada'),
+#         notes: Faker::Types.rb_string,
+#         created_at: Faker::Time.between(3.years.ago, 9.months.ago, :all),
+#         updated_at: Faker::Time.between(8.months.ago, Time.now, :all)
+#     )
+#     end
 
     address_id_array = [*1..10]
+
     user_id_array = [*11..20]
     lead_id_array = [*1..40]
+
 
 10.times do
     Customer.create!(
@@ -125,8 +150,10 @@ end
         phone_of_technical_service: Faker::PhoneNumber.phone_number,
         email_of_technical_service: Faker::Internet.email,
         address_id: address_id_array.delete(address_id_array.sample),
+
         user_id: user_id_array.delete(user_id_array.sample),
-        # lead_id: lead_id_array.sample,
+        
+        
         created_at: Faker::Time.between(3.years.ago, 7.months.ago, :all),
         updated_at: Faker::Time.between(6.months.ago, Time.now, :all)
     )

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => 'reload' %>
     <title>Rocket Elevators</title>
 	<!-- mobile settings -->
 	
@@ -32,7 +33,7 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/_smarty/RocketElevatorImage/faviconRocket.png">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-	  <%= javascript_include_tag "application" %>
+	 
 
   </head>
 
@@ -179,6 +180,11 @@
 										Dashboard
 									</a>
 								  </li>
+								  <li>
+								  <a href="/google">
+									  google
+								  </a>
+								</li>
 									<% end %>
 								<% else %>
 								<a href="">
@@ -279,9 +285,7 @@
 
     <!-- JAVASCRIPT FILES -->
 <script>var plugin_path = '/assets/plugins/';</script>
-<script src="/assets/plugins/jquery/jquery-3.3.1.min.js"></script>
 
-<script src="/assets/js/scripts.js"></script>
 
 
 <!-- REVOLUTION SLIDER -->
