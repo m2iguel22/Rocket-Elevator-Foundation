@@ -24,7 +24,7 @@ class Elevator < ApplicationRecord
              client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
              client.messages.create({
                  from: '+12055062996',
-                 to: '+15819856402',
+                 to: '+15819831152',
                  body: message
                  })
         end
@@ -32,7 +32,7 @@ class Elevator < ApplicationRecord
 
    def status_change
     if status == "Intervention"   
-        message = "The elevator #{id} status has changed" 
+        message = "The elevator #{id} status from Rocket Elevators Team Bibeau has changed to #{status}" 
         TwilioTextMessenger.new(message).call
     end
    end
