@@ -24,7 +24,7 @@ class Elevator < ApplicationRecord
              client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
              client.messages.create({
                  from: '+12055062996',
-                 to: '+15819831152',
+                 to: '+15819856402',
                  body: message
                  })
         end
