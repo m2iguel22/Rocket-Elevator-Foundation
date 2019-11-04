@@ -86,6 +86,9 @@ class PgSync
         end
     end
 
-
+    def sync_intervention_battery
+        pg_connection.exec ("TRUNCATE sync_intervention RESTART IDENTITY")
+        Battery.all.each.do |battery|
+            
 
 end

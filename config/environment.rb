@@ -11,6 +11,7 @@ Rails.application.initialize!
 ActionMailer::Base.smtp_settings = {
     :user_name => userName,
     :password => password,
+    :domain => 'rocketgb.best',
     :address => 'smtp.sendgrid.net',
     :port => 587,
     :authentication => :plain,
