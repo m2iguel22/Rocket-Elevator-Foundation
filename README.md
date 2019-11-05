@@ -1,8 +1,10 @@
 Semaine 7
 
-Projet de Gabriel Bibeau, Steve Drolet Toutant, Jérémie Veilleux et Miguel Martin. Vous pouvez accéder au back-office avec le compte mathieu.houde@codeboxx.biz password : 123456
+Projet de Gabriel Bibeau, Steve Drolet Toutant, Jérémie Veilleux et Miguel Martin.
+Vous pouvez accéder au back-office avec le compte mathieu.houde@codeboxx.biz password : 123456
 
-Google Maps La section de Google Maps peut être accéder dans l'onglet account de la page d'acceuil. Vous y touverez la localisation de tous nos buildings avec de l'information pertinente, dont la méteo.
+Google Maps
+La section de Google Maps peut être accéder dans l'onglet account de la page d'acceuil. Vous y touverez la localisation de tous nos buildings avec de l'information pertinente, dont la méteo.
 
 Les gems utilisés pour cet API furent Faraday et open weathers
 
