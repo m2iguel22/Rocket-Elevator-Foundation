@@ -1,5 +1,6 @@
 require "pg"
 require "yaml"
+require 'faker'
 
 class PgSync
     
@@ -86,9 +87,104 @@ class PgSync
         end
     end
 
-    def sync_intervention_battery
-        pg_connection.exec ("TRUNCATE sync_intervention RESTART IDENTITY")
-        Battery.all.each.do |battery|
+    def sync_fact_intervention
+        pg_connection.exec ("TRUNCATE fact_interventions RESTART IDENTITY")
+        Battery.all.each do |battery|
+
+            bat_int_array_status = ["In progress", "Resumed"]
+            if battery.status == 'Intervention'
+                sql_string = "INSERT INTO fact_interventions (employee_id,building_id,battery_id,date_time_start_intervention,results,reports,status)
+                VALUES ('#{battery.employee.id}','#{battery.building.id}','#{battery.id}', '#{Faker::Time.between(3.days.ago, Time.now)}' , 'Incomplete', '#{Faker::Types.rb_string}', '#{bat_int_array_status.sample}');"
+                self.pg_connection.exec(sql_string)
+            end
+            if battery.status == 'Inactive'
+                sql_string = "INSERT INTO fact_interventions (employee_id,building_id,battery_id,date_time_start_intervention,results,reports,status)
+                VALUES ('#{battery.employee.id}','#{battery.building.id}','#{battery.id}', '#{Faker::Time.between(3.days.ago, Time.now)}' , 'Failed', '#{Faker::Types.rb_string}', 'Interrupted');"
+                self.pg_connection.exec(sql_string)
+            end
+        end
+        battery_array = []
+        Battery.all.each do |battery|        
+            battery_array = battery_array.push(battery)
             
+
+        end
+        for x in 1..4
+            start = Faker::Time.between(2.years.ago, 4.days.ago)
+            ending = Faker::Time.between(start, start + 1.month)
+            battery = battery_array.sample
+            bat_other_array_status = ["Pending","In progress", "Interrupted", "Resumed", "Complete"]
+            bat_array_result = ["Success", "Failed", "Incomplete"]
+
+            sql_string = "INSERT INTO fact_interventions (employee_id, building_id, battery_id, date_time_start_intervention, date_time_end_intervention, results, reports, status)
+            VALUES (#{battery.employee_id}, '#{battery.building_id}', '#{battery.id}', '#{start}', '#{ending}', '#{bat_array_result.sample}', '#{Faker::Types.rb_string}', '#{bat_other_array_status.sample}');"
+            self.pg_connection.exec(sql_string)            
+        end
+
+
+        Column.all.each do |column|
+
+            col_int_array_status = ["In progress", "Resumed"]
+            if column.status == 'Intervention'
+                sql_string = "INSERT INTO fact_interventions (employee_id,building_id,column_id,date_time_start_intervention,results,reports,status)
+                VALUES ('#{column.battery.employee.id}','#{column.battery.building.id}','#{column.id}', '#{Faker::Time.between(3.days.ago, Time.now)}' , 'Incomplete', '#{Faker::Types.rb_string}', '#{col_int_array_status.sample}');"
+                self.pg_connection.exec(sql_string)
+            end
+            if battery.status == 'Inactive'
+                sql_string = "INSERT INTO fact_interventions (employee_id,building_id,column_id,date_time_start_intervention,results,reports,status)
+                VALUES ('#{column.battery.employee.id}','#{column.battery.building.id}','#{column.id}', '#{Faker::Time.between(3.days.ago, Time.now)}' , 'Failed', '#{Faker::Types.rb_string}', 'Interrupted');"
+                self.pg_connection.exec(sql_string)
+            end
+        end
+        column_array = []
+        Column.all.each do |column|        
+            column_array = column_array.push(column)
+            
+        end
+        for x in 1..12
+            start = Faker::Time.between(2.years.ago, 4.days.ago)
+            ending = Faker::Time.between(start, start + 1.month)
+            column = column_array.sample
+            col_other_array_status = ["Pending","In progress", "Interrupted", "Resumed", "Complete"]
+            col_array_result = ["Success", "Failed", "Incomplete"]
+
+            sql_string = "INSERT INTO fact_interventions (employee_id, building_id, column_id, date_time_start_intervention, date_time_end_intervention, results, reports, status)
+            VALUES (#{column.battery.employee_id}, '#{column.battery.building_id}', '#{column.id}', '#{start}', '#{ending}', '#{col_array_result.sample}', '#{Faker::Types.rb_string}', '#{col_other_array_status.sample}');"
+            self.pg_connection.exec(sql_string)            
+        end
+        
+
+        Elevator.all.each do |elevator|
+
+            ele_int_array_status = ["In progress", "Resumed"]
+            if elevator.status == 'Intervention'
+                sql_string = "INSERT INTO fact_interventions (employee_id,building_id,elevator_id,date_time_start_intervention,results,reports,status)
+                VALUES ('#{elevator.column.battery.employee.id}','#{elevator.column.battery.building.id}','#{elevator.id}', '#{Faker::Time.between(3.days.ago, Time.now)}' , 'Incomplete', '#{Faker::Types.rb_string}', '#{ele_int_array_status.sample}');"
+                self.pg_connection.exec(sql_string)
+            end
+            if battery.status == 'Inactive'
+                sql_string = "INSERT INTO fact_interventions (employee_id,building_id,elevator_id,date_time_start_intervention,results,reports,status)
+                VALUES ('#{elevator.column.battery.employee.id}','#{elevator.column.battery.building.id}','#{elevator.id}', '#{Faker::Time.between(3.days.ago, Time.now)}' , 'Failed', '#{Faker::Types.rb_string}', 'Interrupted');"
+                self.pg_connection.exec(sql_string)
+            end
+        end
+        elevator_array = []
+        Elevator.all.each do |elevator|        
+            elevator_array = elevator_array.push(elevator)
+            
+        end
+        for x in 1..24
+            start = Faker::Time.between(2.years.ago, 4.days.ago)
+            ending = Faker::Time.between(start, start + 1.month)
+            elevator = elevator_array.sample
+            ele_other_array_status = ["Pending","In progress", "Interrupted", "Resumed", "Complete"]
+            ele_array_result = ["Success", "Failed", "Incomplete"]
+
+            sql_string = "INSERT INTO fact_interventions (employee_id, building_id, elevator_id, date_time_start_intervention, date_time_end_intervention, results, reports, status)
+            VALUES (#{elevator.column.battery.employee_id}, '#{elevator.column.battery.building_id}', '#{elevator.id}', '#{start}', '#{ending}', '#{ele_array_result.sample}', '#{Faker::Types.rb_string}', '#{ele_other_array_status.sample}');"
+            self.pg_connection.exec(sql_string)            
+        end
+    end
+
 
 end

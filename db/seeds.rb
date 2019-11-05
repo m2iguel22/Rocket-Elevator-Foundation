@@ -74,7 +74,7 @@ end
     )
   end
 
-    status_array = ["Active", "Active", "Active", "Inactive"]
+    status_array = ["Active", "Active", "Active", "Inactive", "Intervention"]
     type_of_building_array = ["Residential", "Commercial", "Corporative", "Hybrid"]
     type_of_service_array = ["Standard", "Premium", "Excelium"]
     
