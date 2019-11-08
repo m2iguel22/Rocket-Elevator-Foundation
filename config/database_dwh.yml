@@ -14,13 +14,13 @@
 development:
   adapter: postgresql
   encoding: utf8
-  # host: codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com 
-  host: localhost 
+  host: codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com 
+#   host: localhost 
   pool: 10
   port: 5432
   database: gbibeau
-  username: gbibeau  
-  password: gabbibo11
+  username: codeboxx  
+  password: Codeboxx1!
 
 
 # Warning: The database defined as "test" will be erased and
