@@ -18,7 +18,7 @@ development:
 #   host: localhost 
   pool: 10
   port: 5432
-  database: therockets
+  database: gbibeau
   username: codeboxx  
   password: Codeboxx1!
 
