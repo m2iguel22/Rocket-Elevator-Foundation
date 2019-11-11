@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  resources :interventions
   get 'speak/watson'
   get 'speak/star_wars'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
   # get '/WatsonSpeaker/watson'
 
   # Rails.application.routes.draw do
+  resources :interventions
   # get 'speak/watson'
   #   devise_for :users, controllers: {
   #     sessions: 'users/sessions'
