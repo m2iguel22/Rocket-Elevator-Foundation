@@ -2,11 +2,6 @@ class CreateInterventions < ActiveRecord::Migration[5.2]
   def change
     create_table      :interventions do |t|
       t.string        :Author
-      add_reference   :customers,     :interventions, foreign_key: true
-      add_reference   :batteries,     :interventions, foreign_key: true, null: true
-      add_reference   :columns,       :interventions, foreign_key: true, null: true
-      add_reference   :elevators,     :interventions, foreign_key: true, null: true 
-      add_reference   :employees,     :interventions, foreign_key: true, null: true
       t.string        :interventions_date_time_start, null: true 
       t.string        :interventions_date_time_end, null: true 
       t.string        :Résult, default: "Incomplete"
@@ -15,5 +10,11 @@ class CreateInterventions < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+      add_reference   :interventions,   :building,  foreign_key: true
+      add_reference   :interventions,   :customer,  foreign_key: true
+      add_reference   :interventions,   :battery,   foreign_key: true, null: true
+      add_reference   :interventions,   :column,    foreign_key: true, null: true
+      add_reference   :interventions,   :elevator,  foreign_key: true, null: true 
+      add_reference   :interventions,   :employee,  foreign_key: true, null: true
   end
 end
