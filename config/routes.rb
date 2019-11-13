@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get '/google', to: 'google#index'
   get '/quote_confirm', to: 'pages#quote_confirm'
   get '/terms_and_conditions', to: 'pages#terms_and_conditions'
-  get '/intervention', to: 'interventions#form'
+  get '/intervention', to: 'intervention#form'
   get '/back', to: 'pages#index'
 
   #get '/leads', to: 'leads#create'

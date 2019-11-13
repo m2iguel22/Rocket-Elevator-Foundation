@@ -229,8 +229,9 @@ class InterventionsController < ApplicationController
   end
   
   # Never trust parameters from the scary internet, only allow the white list through.
-  def intervention_params
-    params.fetch(:intervention, {})
+    def intervention_params
+      params.fetch(:intervention, {})
+    end
   end
 end
 # end
