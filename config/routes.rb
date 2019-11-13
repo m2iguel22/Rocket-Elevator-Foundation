@@ -34,7 +34,7 @@ Rails.application.routes.draw do
 
   # Rails.application.routes.draw do
   resources :interventions do
-    get :get_building_for_customer, on: :collection
+    get :get_buildings, on: :collection
   end
 
   # get 'speak/watson'

@@ -36,8 +36,8 @@ class InterventionsController < ApplicationController
     if request.xhr?
       respond_to do |format|
       format.json do
-        cust_id = params[:id]
-        @buildings = Building.where(customer_id: cust_id)
+        customer_id = params[:id]
+        @buildings = Building.where(customer_id: customer_id)
         
         logger.info(@buildings)
 
@@ -51,8 +51,8 @@ class InterventionsController < ApplicationController
     if request.xhr?
       respond_to do |format|
       format.json do
-        batt_id = params[:id]
-        @batteries = Battery.where(building_id: batt_id)
+        battery_id = params[:id]
+        @batteries = Battery.where(building_id: battery_id)
         
         logger.info(@batteries)
 
@@ -68,8 +68,8 @@ class InterventionsController < ApplicationController
       if request.xhr?
         respond_to do |format|
         format.json do
-          colu_id = params[:id]
-          @columns = Column.where(column_id: colu_id)
+          column_id = params[:id]
+          @columns = Column.where(column_id: column_id)
           
           logger.info(@columns)
 
@@ -84,8 +84,8 @@ class InterventionsController < ApplicationController
       if request.xhr?
         respond_to do |format|
         format.json do
-          elev_id = params[:id]
-          @elevators = Elevator.where(elevator_id: elev_id)
+          elevator_id = params[:id]
+          @elevators = Elevator.where(elevator_id: elevator_id)
           
           logger.info(@elevators)
 
