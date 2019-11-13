@@ -162,9 +162,22 @@
 											CONTACT
 										</a>
 									</li>
+									<li><!---Intervention ---->	
+
+									<% if current_user %>
+									<% if current_user.admin == true %>
+									<a href="/intervention">
+
+											INTERVENTION
+									</a>
+									<% end %>
+									<% end %>
+									</li>
 									<li>
+
 									<!-- Account -->
 								<% if current_user %>
+
 								<a href="">
 										<%= current_user.email %>
 									</a>
@@ -180,11 +193,13 @@
 										Dashboard
 									</a>
 								  </li>
+									<li>
+									</li>
 								  <li>
 								  <a href="/google">
 									  google
 								  </a>
-								</li>
+								</li>								
 									<% end %>
 								<% else %>
 								<a href="">

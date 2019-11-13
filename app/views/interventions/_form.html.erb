@@ -1,4 +1,90 @@
-<%= form_with(model: intervention, local: true) do |form| %>
+
+<script>
+ <%= form_with(model: intervention, local: true) do |form| %>
+
+// Une action qui se declanche sur le changement de la liste deroulante
+//lire la valeure de la liste
+// $.get(/interventions/get_building_for_customer?customer_id=la veleur 
+
+
+</script>
+<section class="page-header quoteHeaderColor">
+                            <div class="container">           
+                                <!-- breadcrumbs -->
+                               <ol class="breadcrumb">
+                                    <li><a href="/" style="color:white">Home</a></li>
+                                    <li class="active">Rocket</li>
+                                </ol><!-- /breadcrumbs -->            
+                            </div>
+                            <div class= "chooseType">
+                                <label class= "labelStyle">Employees</label>
+                        <select class= "ansStyle" onchange="showHide()" id= "buildingType" name="Type_of_building">
+                                    <option value="">---- Type ----</option>
+                                     <option value= ""></option>
+                        </select>
+                        </div>
+                        </section> 
+                        <div class= "chooseType">
+                                <label class= "labelStyle">Customer Name</label>
+                        <select class= "ansStyle" onchange="showHide()" id= "buildingType" name="Type_of_building">
+                                    <option value="">---- Type ----</option>
+                                     <option value= "">Costumer Name</option>
+                        </select>
+                        </div>
+
+                        <div class= "chooseType">
+                                <label class= "labelStyle">Choose building</label>
+                        <select class= "ansStyle" onchange="showHide()" id= "buildingType" name="Type_of_building">
+                                    <option value="">---- Type ----</option>
+                                     <option value= ""></option>
+                        </select>
+                        </div>
+
+                        <div class= "chooseType">
+                                <label class= "labelStyle">Choose Battery</label>
+                        <select class= "ansStyle" onchange="showHide()" id= "buildingType" name="Type_of_building">
+                                    <option value="">---- Type ----</option>
+                                     <option value= ""></option>
+                        </select>
+                        </div>
+
+                        <div class= "chooseType">
+                                <label class= "labelStyle">Choose Column</label>
+                        <select class= "ansStyle" onchange="showHide()" id= "buildingType" name="Type_of_building">
+                                    <option value="">---- Type ----</option>
+                                     <option value= ""></option>
+                        </select>
+                        </div>
+                        
+                        <div class= "chooseType">
+                                <label class= "labelStyle">Choose Elevator</label>
+                        <select class= "ansStyle" onchange="showHide()" id= "buildingType" name="Type_of_building">
+                                    <option value="">---- Type ----</option>
+                                     <option value= ""></option>
+                        </select>
+                        </div>
+                         <div class= "divSize"> 
+                                <div class= "askStyle">
+                                    <label class= "labelStyle">Desciption of the intervention</label>
+                                    <div class= "quoteStyle">                                     
+                                        <div class="col-md-12">
+													<label for="contact:message">Message *</label>
+													<textarea required maxlength="10000" rows="4" class="form-control" name="Message" id="contact:message"></textarea>
+												</div>
+                      </div>
+                    </div>      
+                  </div>
+                  <%= form_with(model: @intervention, local: true) do |form| %>	
+
+							<%= form.select(:customer_id, Customer.all.collect {|cu| [cu.full_name_contact_person, cu.id]},  {prompt: "Select Customer"}, {class: 'form-control'}) %>
+							<%= form.select(:building_id, Building.all.collect {|bu| [bu.address_id, bu.id]}, {prompt: "Select Building"}, {class: 'form-control'}) %>
+							<%= form.select(:battery_id, Battery.all.collect {|ba| [ba.building_id, ba.id]}, {prompt: "Select Battery"}, {class: 'form-control'}) %>
+							<%= form.select(:column_id, Column.all.collect {|co| [co.id, co.id]}, {prompt: "Select Column"}, {class: 'form-control'}) %>
+							<%= form.select(:elevator_id, Elevator.all.collect {|el| [el.id, el.id]}, {prompt: "Select Elevator"}, {class: 'form-control'}) %>
+                                                                                                                             
+                                
+                         
+                                       
   <% if intervention.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(intervention.errors.count, "error") %> prohibited this intervention from being saved:</h2>

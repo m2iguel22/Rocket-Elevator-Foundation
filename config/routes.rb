@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   
-  resources :interventions
+  #resources :interventions
   get 'speak/watson'
   get 'speak/star_wars'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get '/google', to: 'google#index'
   get '/quote_confirm', to: 'pages#quote_confirm'
   get '/terms_and_conditions', to: 'pages#terms_and_conditions'
+  get '/intervention', to: 'interventions#form'
+  get '/back', to: 'pages#index'
 
   #get '/leads', to: 'leads#create'
  
@@ -31,7 +33,10 @@ Rails.application.routes.draw do
   # get '/WatsonSpeaker/watson'
 
   # Rails.application.routes.draw do
-  resources :interventions
+  resources :interventions do
+    get :get_building_for_customer, on: :collection
+  end
+
   # get 'speak/watson'
   #   devise_for :users, controllers: {
   #     sessions: 'users/sessions'
