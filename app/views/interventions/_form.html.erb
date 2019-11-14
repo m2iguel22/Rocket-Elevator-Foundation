@@ -1,0 +1,116 @@
+<%= form_with(url: interventions_path(), local: true) do |form| %>
+
+<section class="page-header quoteHeaderColor">
+                <div class="container">           
+                    <!-- breadcrumbs -->
+                  <ol class="breadcrumb">
+                        <li><a href="/" style="color:white">Home</a></li>
+                        <li class="active">Rocket</li>
+                    </ol><!-- /breadcrumbs -->            
+                </div>
+
+                <div class="form-group col-md-4 container mt-2" align="center" >
+
+				        <label for="author">Ticket Author :</label>
+
+                <input id="" class="center" name="author_ticket" type="" value="<%= current_user.employee.first_name + " " + current_user.employee.last_name  %>" style="padding: 16px; border-radius: 15px;" disabled/>
+			
+			          <input id="" class="center" name="author_" type="hidden" value="<%= current_user.employee.first_name + current_user.employee.last_name  %>"/>
+                </div>
+
+              <div class="form-group col-md-4 container mt-2" align="center" >
+                <div class= "chooseType">
+                  <label class= "labelStyle">Employees</label>
+                  <select class= "ansStyle" onchange="showHide()" id= "Employee_Name" name="Employee_name">
+                    <option value="">--Choose Employee--</option>
+                    <% Employee.all.each do |c|%>
+                      <option value="<%= c.id %>"><%= c.first_name %> <%= c.last_name %>  id: <%= c.id %></option>
+                    <% end %>
+                    <input id="c" class="center" name="author" type="hidden"/>
+                  </select>
+                </div>
+              </div>
+                   
+                </section>
+
+
+                <div class= "chooseType">
+                  <label class= "labelStyle">Costomer Name</label>
+                  <select class= "ansStyle" onchange="customer()" id="customer_id" name="customer_id">   
+                  <option value="">--Choose Costumer--</option>                 
+                    <% Customer.all.each do |c|%>
+                      <option value="<%= c.id %>"><%= c.full_name %></option>
+                    <% end %>
+                  </select>
+                </div> 
+
+
+
+                <div class= "chooseType">
+                  <label class= "labelStyle">building</label>
+                  <select class= "ansStyle" onchange="building()" id= "building_id" name="building_id">
+                    <option value="">--Choose Building--</option>                      
+                    <% Building.all.each do |c|%>
+                      <option value="<%=c.id %>"><%= c.id%></option>
+                    <% end %>
+                  </select>
+                </div>
+
+
+
+                <div class= "chooseType">
+                  <label class= "labelStyle">Choose Battery</label>
+                    <select class= "ansStyle" onchange="battery()" id= "battery_id" name="battery_id">
+                    <option value="">--Choose Battery--</option>
+                    <% Battery.all.each do |c|%>
+                      <option value="<%=c.id %>"><%= c.id%></option>
+                    <% end %>
+                  </select>
+                </div>
+
+
+
+                <div class= "chooseType">
+                  <label class= "labelStyle">Choose Column</label>
+                    <select class= "ansStyle" onchange="column()" id= "column_id" name="column_id">
+                      <option value="">--Choose column--</option>
+                      <% Column.all.each do |c|%>
+                        <option value="<%= c.id %>"><%= c.id%></option>
+                      <% end %>
+                    </select>
+                </div>
+
+
+                        
+                <div class= "chooseType">
+                  <label class= "labelStyle">Choose Elevator</label>
+                    <select class="ansStyle" onchange="elevator()" id= "elevator_id" name="elevator_id">
+                      <option value="">--Choose elevator--</option>
+                      <% Elevator.all.each do |c|%>
+                        <option value="<%= c.id %>"><%= c.id%></option>
+                      <% end %>
+                    </select>
+                </div>
+
+
+
+                <div class= "divSize"> 
+                  <div class= "askStyle">
+                    <label class= "labelStyle">Desciption of the intervention</label>
+                    <div class= "quoteStyle">                                     
+                    <div class="col-md-12">
+                    <label for="contact:message">Message *</label>
+                    <textarea required maxlength="10000" rows="4" class="form-control" name="Message" id="contact:message"></textarea>
+                </div>
+              </div>
+            </div>      
+          </div>
+                  <%# <%= form_with(model: @intervention, local: true) do |form|                                                                                                        
+                  <% if intervention.errors.any? %>
+  <div class="actions">
+    <button class="btn btn-red btn-lg" style="margin-top: 15px;" type= 'submit' >Submit</button>
+  </div>
+                                                                    
+
+</form>
+<% end %>
