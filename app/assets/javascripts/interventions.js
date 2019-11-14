@@ -1,155 +1,85 @@
 $(document).ready(function(){
 
+    console.log("BEN LOADE");
 
-    $("#customer_id").change(function(){
-        var project = $(this).val();
-        if(project == ''){
-        $("#customer_id").prop("disabled", true);
-         }else{
-            $("#building_id").prop("disabled", false);
-            console.log();
-        }
-        $.ajax({
-          url: "/interventions",
-          method: "GET",  
-          dataType: "json",
-          data: {id: project},
-          error: function (xhr, status, error) {
-            	console.error('AJAX Error: ' + status + error);
-          },
-          success: function (response) {
-                console.log(response);
-                
-            
-            	var buildings = response["add_update"];
-             	$("#building_id").empty();
-               console.log(buildings);
-             	$("#building_id").append('<option>Select Building</option>');
-             	for(var i = 0; i < buildings.length; i++){
+
+}) //ready
+
+function customer(){
   
-                 $("#building_id").append('<option value="' + buildings[i]["id"] + '">' +buildings[i]["address_id"] + '</option>');
-                 
-             	}
-          }
+  var customer_id = $("#customer_id").val()
+  console.log("Hello", customer_id);
+
+  $.ajax({
+    url: '/get_buildings',
+    dataType: 'json',
+    type: 'get',
+    contentType: 'application/json',
+    data: {customer_id: customer_id},
+    
+    error: function (status, error)
+      {
+        console.error('AJAX Error: ' + status + error);
+      },
+      success: function(buildings){ 
+        $('#building_id').empty();
+        buildings.forEach(building => { console.log("building Number", building.id)
+        $('#building_id').append('<option value='+building.id+'>'+ building.id + " administator : " + building.admin_full_name +'</option>>');
         });
-        console.log(project)
-  });
-
-  $(document).ready(function(){
-
-
-    ///// building_id ///////
+      }
+    })       
+$("#buildingform").show();
+}; //function customer  
 
 
-    $("#customer_id").change(function(){
-        var project = $(this).val();
-        if(project == ''){
-        $("#customer_id").prop("disabled", true);
-         }else{
-            $("#building_id").prop("disabled", false);
-            console.log();
-        }
-        $.ajax({
-          url: "/interventions",
-          method: "GET",  
-          dataType: "json",
-          data: {id: project},
-          error: function (xhr, status, error) {
-            	console.error('AJAX Error: ' + status + error);
-          },
-          success: function (response) {
-                console.log(response);
-                
-            
-            	var buildings = response["add_update"];
-             	$("#building_id").empty();
-               console.log(buildings);
-             	$("#building_id").append('<option>Select Building</option>');
-             	for(var i = 0; i < buildings.length; i++){
+function building(){
   
-                 $("#building_id").append('<option value="' + buildings[i]["id"] + '">' +buildings[i]["address_id"] + '</option>');
-                 
-             	}
-          }
+  var building_id = $("#building_id").val()
+  console.log("Hello", building_id);
+
+  $.ajax({
+    url: '/get_batteries',
+    dataType: 'json',
+    type: 'get',
+    contentType: 'application/json',
+    data: {building_id: building_id},
+    
+    error: function (status, error)
+      {
+        console.error('AJAX Error: ' + status + error);
+      },
+      success: function(battery){ 
+        $('#battery_id').empty();
+        battery.forEach(battery => { console.log("battery Number", battery.id)
+        $('#battery_id').append('<option value='+battery.id+'>'+ battery.id + " - " + battery.type_of_battery +'</option>>');
         });
-        console.log(project)
-  });
-  $(document).ready(function(){
+      }
+    })       
+$("#batteryform").show();
+}; //function building
 
-    ///// battery_id ///////
-
-
-    $("#customer_id").change(function(){
-        var project = $(this).val();
-        if(project == ''){
-        $("#customer_id").prop("disabled", true);
-         }else{
-            $("#building_id").prop("disabled", false);
-            console.log();
-        }
-        $.ajax({
-          url: "/interventions",
-          method: "GET",  
-          dataType: "json",
-          data: {id: project},
-          error: function (xhr, status, error) {
-            	console.error('AJAX Error: ' + status + error);
-          },
-          success: function (response) {
-                console.log(response);
-                
-            
-            	var buildings = response["add_update"];
-             	$("#building_id").empty();
-               console.log(buildings);
-             	$("#building_id").append('<option>Select Building</option>');
-             	for(var i = 0; i < buildings.length; i++){
+function battery(){
   
-                 $("#building_id").append('<option value="' + buildings[i]["id"] + '">' +buildings[i]["address_id"] + '</option>');
-                 
-             	}
-          }
+  var battery_id = $("#battery_id").val()
+  console.log("Hello", battery_id);
+
+  $.ajax({
+    url: '/get_columns',
+    dataType: 'json',
+    type: 'get',
+    contentType: 'application/json',
+    data: {battery_id: battery_id},
+    
+    error: function (status, error)
+      {
+        console.error('AJAX Error: ' + status + error);
+      },
+      success: function(column){ 
+        $('#column_id').empty();
+        column.forEach(column => { console.log("column Number", columns.id)
+        $('#column_id').append('<option value='+column.id+'>'+ column.id + " - " + column.type_of_battery +'</option>>');
         });
-        console.log(project)
-  });
-
-  $(document).ready(function(){
-
-
-    ////// column_id ///////
-
-    $("#customer_id").change(function(){
-        var project = $(this).val();
-        if(project == ''){
-        $("#customer_id").prop("disabled", true);
-         }else{
-            $("#building_id").prop("disabled", false);
-            console.log();
-        }
-        $.ajax({
-          url: "/interventions",
-          method: "GET",  
-          dataType: "json",
-          data: {id: project},
-          error: function (xhr, status, error) {
-            	console.error('AJAX Error: ' + status + error);
-          },
-          success: function (response) {
-                console.log(response);
-                
-            
-            	var buildings = response["add_update"];
-             	$("#building_id").empty();
-               console.log(buildings);
-             	$("#building_id").append('<option>Select Building</option>');
-             	for(var i = 0; i < buildings.length; i++){
-  
-                 $("#building_id").append('<option value="' + buildings[i]["id"] + '">' +buildings[i]["address_id"] + '</option>');
-                 
-                }
-            }
-          });
-          console.log(project)
-        });
-    })
-}
+      }
+    })       
+$("#batteryform").show();
+}; //function customer  
