@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get '/google',                to: 'google#index'
   get '/quote_confirm',         to: 'pages#quote_confirm'
   get '/terms_and_conditions',  to: 'pages#terms_and_conditions'
-  get '/intervention',          to: 'intervention#new'
+  get '/interventions',          to: 'intervention#new'
   # get '/intervention', to: 'intervention#index'
 
   #get '/leads', to: 'leads#create'
@@ -35,9 +35,10 @@ Rails.application.routes.draw do
   # Rails.application.routes.draw do
   resources :interventions
     get 'get_buildings'   => 'interventions#get_buildings'
-    get 'get_batteries'   => 'interventions#getBatteries'
+    get 'get_batteries'   => 'interventions#get_batteries'
     get 'get_columns'     => 'interventions#get_columns'
-    get 'get_eElevators'   => 'interventions#get_elevators'
+    get 'get_elevators'   => 'interventions#get_elevators'
+    post '/interventions', to: 'interventions#create'
 
   # get 'speak/watson'
   #   devise_for :users, controllers: {

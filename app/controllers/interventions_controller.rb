@@ -33,7 +33,12 @@ class InterventionsController < ApplicationController
       buildings = Building.where(customer_id: customer_id)
       render json: buildings
     end
-   
+    
+    def get_batteries
+      building_id = params[:building_id]
+      batteries= Battery.where(building_id: building_id)
+      render json: batteries
+    end
     # def get_buildings
     #     building_id = params[:building_id]
     #     batteries = Battery.where(building_id: building_id)
@@ -41,74 +46,70 @@ class InterventionsController < ApplicationController
     # end
  
     def get_columns
-      column_id = params[:column_id]
-      elevators = Elevator.where(column_id: column_id)
-      render json: elevators
-    end
-    
-    def get_batteries
       battery_id = params[:battery_id]
       columns = Column.where(battery_id: battery_id)
       render json: columns
     end
 
+    def get_elevators
+      column_id = params[:column_id]
+      elevators = Elevator.where(column_id: column_id)
+      render json: elevators
+    end
+    
 
-    def create
 
-    authorId         = params['intervention_author']
-    customerId       = params['intervention_customer_id']
-    buildingId       = params['intervention_building_id']
-    batteryId        = params['intervention_battery_id']
-    columnId         = params['intervention_column_id']
-    elevatorId       = params['intervention_elevator_id']
-    employeeId       = params['intervention_employee_id_']
-    descriptionInt   = params['intervention_description']
+   
 
-    @intervention = Intervention.new
-
-    @intervention.author_id     = authorId
-    @intervention.customer_id   = customerId
-    @intervention.building_id   = buildingId
-    @intervention.battery_id    = batteryId
-    @intervention.column_id     = columnId
-    @intervention.elevator_id   = elevatorId
-    @intervention.employee_id   = employeeId
-    @intervention.report        = descriptionInt
-
-    @intervention.save!
-    @intervention.interventions
-    redirect_to quote_confirm_path
-    end    
-  
-            
-  # GET /interventions/1
-  # GET /interventions/1.json
+    
+    
+    
+    # GET /interventions/1
+    # GET /interventions/1.json
     def show
     end
-      
-  # GET /interventions/new
+    
+    # GET /interventions/new
     def new
       @intervention = Intervention.new
     end
     
-  # GET /interventions/1/edit
+    # GET /interventions/1/edit
     def edit
     end
-  
-  # POST /interventions
-  # POST /interventions.json
+    
+    # POST /interventions
+    # POST /interventions.json
     def create
-      @intervention = Intervention.new(intervention_params)
       
-      respond_to do |format|
-        if @intervention.save
-          format.html { redirect_to @intervention, notice: 'Intervention was successfully created.' }
-          format.json { render :show, status: :created, location: @intervention }
-        else
-          format.html { render :new }
-          format.json { render json: @intervention.errors, status: :unprocessable_entity }
-        end
-      end
+      # @intervention = Intervention.new(intervention_params)
+
+    
+      author            = current_user.employee.id
+      customer_id       = params['customer_id']
+      building_id       = params['building_id']
+      battery_id        = params['battery_id']
+      column_id         = params['column_id']
+      elevator_id       = params['elevator_id']
+      employee_id       = params['Employee_name']
+      description       = params['Message']
+  
+      @intervention = Intervention.new
+  
+      @intervention.customer_id   = customer_id
+      @intervention.building_id   = building_id
+      @intervention.battery_id    = battery_id
+      @intervention.column_id     = column_id
+      @intervention.elevator_id   = elevator_id
+      @intervention.employee_id   = employee_id
+      @intervention.Author        = author
+      @intervention.Repport       = description
+  
+      @intervention.save!
+      # @intervention.interventions
+      redirect_to quote_confirm_path
+      
+
     end
   
   # PATCH/PUT /interventions/1

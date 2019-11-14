@@ -150,7 +150,7 @@ ActiveRecord::Schema.define(version: 2019_11_11_181104) do
   end
 
   create_table "interventions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "Author"
+    t.integer "Author"
     t.string "interventions_date_time_start"
     t.string "interventions_date_time_end"
     t.string "Résult", default: "Incomplete"

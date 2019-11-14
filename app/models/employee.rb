@@ -6,6 +6,7 @@ class Employee< ApplicationRecord
          :rememberable, :validatable  
   has_many :batteries, dependent: :destroy
   belongs_to :user, dependent: :destroy
+  has_many :interventions
 
 
   def name

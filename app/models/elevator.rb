@@ -3,6 +3,7 @@ require 'twilio-ruby'
 class Elevator < ApplicationRecord
 
     belongs_to :column
+    has_many :interventions
 
 
     after_update :status_changed

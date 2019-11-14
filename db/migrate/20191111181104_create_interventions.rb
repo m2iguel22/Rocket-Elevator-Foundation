@@ -1,7 +1,7 @@
 class CreateInterventions < ActiveRecord::Migration[5.2]
   def change
     create_table      :interventions do |t|
-      t.string        :Author
+      t.integer        :Author
       t.string        :interventions_date_time_start, null: true 
       t.string        :interventions_date_time_end, null: true 
       t.string        :Résult, default: "Incomplete"
