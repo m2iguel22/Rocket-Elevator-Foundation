@@ -82,8 +82,9 @@ class InterventionsController < ApplicationController
     # POST /interventions.json
     def create
       
-    #  @intervention = Intervention.new(intervention_params)
+    @intervention = Intervention.new
     
+  
    
     author            = current_user.id
     customer_id       = params['customer_id']
@@ -104,7 +105,6 @@ class InterventionsController < ApplicationController
       @intervention.elevator_id   = elevator_id
       @intervention.employee_id   = employee_id
       @intervention.report        = description
-  
       @intervention.save!
       
       @intervention.intervention
